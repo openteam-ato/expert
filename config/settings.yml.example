@@ -1,0 +1,14 @@
+app:
+  secret:       SECRET
+
+cms:
+  url:          http://cms.url
+  site_slug:    expert
+
+errors:
+  key:          KEY
+  url:          http://errors.url
+
+storage:
+  url:          http://storage.url
+
