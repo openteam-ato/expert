@@ -1,4 +1,4 @@
-expert
+Экспертные советы
 ======
 
-Expert advice of the Administration of Tomsk region
+Сайт экспертных советов Администрации Томской области
