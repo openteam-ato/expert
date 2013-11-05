@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+
   helper_method :cms_address
 
   def index
@@ -14,53 +15,54 @@ class MainController < ApplicationController
   end
 
   private
-    def cms_address
-      "#{Settings['cms.url']}/nodes/#{Settings['cms.site_slug']}"
+
+  def cms_address
+    "#{Settings['cms.url']}/nodes/#{Settings['cms.site_slug']}"
+  end
+
+  def remote_url
+    request_path, parts_params = request.fullpath.split('?')
+    # TODO: выяснить нужно ли энкодить
+    #parts_params = URI.encode(parts_params || '')
+
+    "#{cms_address}#{request_path.split('/').compact.join('/')}.json?#{parts_params}"
+  end
+
+  def page
+    @page ||= Hashie::Mash.new(request_json).page
+  end
+
+  def curl_request
+    @curl_request ||= Curl::Easy.perform(remote_url) do |curl|
+      curl.headers['Accept'] = 'application/json'
     end
+  end
 
-    def remote_url
-      request_path, parts_params = request.fullpath.split('?')
+  def request_status
+    @request_status ||= curl_request.response_code
+  end
 
-      # TODO: выяснить нужно ли энкодить
-      #parts_params = URI.encode(parts_params || '')
+  def request_body
+    @request_body ||= curl_request.body_str
+  end
 
-      "#{cms_address}#{request_path.split('/').compact.join('/')}.json?#{parts_params}"
+  def is_json?(str)
+    begin
+      !!JSON.parse(str)
+    rescue
+      false
     end
+  end
 
-    def page
-      @page ||= Hashie::Mash.new(request_json).page
-    end
+  def request_json
+    @request_json ||= begin
+                        raise ActionController::RoutingError.new('Not Found') unless is_json?(request_body)
+                        ActiveSupport::JSON.decode(request_body)
+                      end
+  end
 
-    def curl_request
-      @curl_request ||= Curl::Easy.perform(remote_url) do |curl|
-        curl.headers['Accept'] = 'application/json'
-      end
-    end
+  def page_regions
+    @page_regions ||= page.regions.keys
+  end
 
-    def request_status
-      @request_status ||= curl_request.response_code
-    end
-
-    def request_body
-      @request_body ||= curl_request.body_str
-    end
-
-    def is_json?(str)
-      begin
-        !!JSON.parse(str)
-      rescue
-        false
-      end
-    end
-
-    def request_json
-      @request_json ||= begin
-                          raise ActionController::RoutingError.new('Not Found') unless is_json?(request_body)
-                          ActiveSupport::JSON.decode(request_body)
-                        end
-    end
-
-    def page_regions
-      @page_regions ||= page.regions.keys
-    end
 end

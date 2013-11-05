@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Expert</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!DOCTYPE HTML>
+<html lang='ru'>
+  <head>
+    <meta charset='UTF-8'>
+    <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} — #{strip_tags(@site_name.content.body)}".squish.html_safe %></title>
+    <%= stylesheet_link_tag 'application', :media => 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
 </html>
