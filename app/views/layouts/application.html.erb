@@ -67,9 +67,11 @@
 
     <%= yield %>
 
-    <div class='validate'>
-      <a target='_blank' href="http://validator.w3.org/check?uri=<%= request.original_url %>">validate html by w3c</a>
-    </div>
+    <% if Rails.env.development? %>
+      <div class='validate'>
+        <a target='_blank' href="http://validator.w3.org/check?uri=<%= request.original_url %>">validate html by w3c</a>
+      </div>
+    <% end %>
 
   </body>
 

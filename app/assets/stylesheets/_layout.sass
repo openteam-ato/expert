@@ -130,66 +130,14 @@ body
     padding: 10px 43px 10px 10px
     margin-top: 17px
 
-.footer
-  +clearfix
-  background: image_url('footer_bg.png') repeat-x left
-  color: #fff
-  font-size: 13px
-  height: 152px
+.validate
+  text-align: center
+  margin-top: 10px
+  border-top: 2px solid #f7f7f7
 
-  a
-    color: #fff
-
-  .contacts
-    +clearfix
-    float: left
-    margin: 20px 0 0 16px
-    width: 280px
-
-    h5
-      font-size: 15px
-      margin: 0 0 11px 0
-
-    p
-      margin: 0 0 7px 0
-
-  .social_links
-    float: left
-    margin: 21px 5px 0 609px
-
-    ul
-      +clearfix
-
-      li
-        float: left
-        margin: 0 7px 0 0
-
-        a
-          background: image_url('social_links.png') no-repeat
-          display: block
-          height: 25px
-          text-indent: -9999px
-          width: 24px
-
-        .rss
-          background-position: 0px 0px
-
-        .vkontakte
-          background-position: -32px 0px
-
-        .facebook
-          background-position: -64px 0px
-
-        .twitter
-          background-position: -94px 0px
-
-        .livejournal
-          background-position: -125px 0px
-
-  .copyrights
-    float: left
-    margin: 38px 15px 0 506px
-    text-align: right
-
-    li
-      margin: 0 0 8px 0
+  &:before
+    content: ' '
+    display: block
+    background-color: #f7f7f7
+    border-top: 1px dotted #7f7f7f
+    padding-top: 2px
