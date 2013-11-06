@@ -53,6 +53,7 @@
     </div>
 
     <%= render "regions/main_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
+    <%= render "regions/submenu_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
 
     <%= yield %>
 

@@ -2,25 +2,15 @@
   background: #f7f7f7 image_url('main_menu_bg.png') repeat-x left
   height: 42px
 
-  .inner
-    overflow: visible
-
   ul
-    width: 100%
-    display: table
     +min-height(42px)
     background: image_url('main_menu_delimiter.png') no-repeat left
 
-    li:first-child:nth-last-child(1)
-      width: 100%
-
-    @for $i from 2 through 10
-      li:first-child:nth-last-child(#{$i}),
-      li:first-child:nth-last-child(#{$i}) ~ li
-        width: percentage(1/$i)
+    > li
+      width: percentage(1/4)
 
     li
-      display: table-cell
+      float: left
 
       &.active
         background: image_url('main_menu_active.png') no-repeat center bottom
@@ -105,6 +95,7 @@
   display: block
 
   .inner
+    +clearfix
     margin-top: 18px
     padding: 0 20px 18px
     width: 936px

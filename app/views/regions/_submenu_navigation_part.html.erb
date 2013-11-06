@@ -1,0 +1,15 @@
+<% object.values.last['children'].each do |name, item| %>
+  <% if item['selected'] && item['children'] %>
+    <div class="submenu_opened">
+      <div class='inner'>
+        <ul>
+          <% item['children'].each do |name, item| %>
+            <li <%= 'class=active' if item['selected'] %>>
+              <%= link_to item['title'], item['path'] %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>
