@@ -1,0 +1,194 @@
+body
+  background-color: #fff
+  font-size: 12px
+  font-family: Verdana, Arial, sans-serif
+  line-height: 1.6
+
+  sup
+    font-size: 10px
+    vertical-align: super
+
+  sub
+    font-size: 10px
+    vertical-align: sub
+
+  a
+    color: #005fab
+    outline: none
+
+    &:hover
+      text-decoration: none
+
+  b, strong
+    font-weight: bold
+
+  .nobr
+    white-space: nowrap
+
+  .inner
+    width: 980px
+    margin: 0 auto
+
+.top
+  +background(linear-gradient(top, #518c52, #3f7f42))
+  +box-shadow(#768577 0 0 7px)
+  border-bottom: 1px solid #1f5f23
+
+  .inner
+    +clearfix
+
+    a
+      color: #fff
+
+    .links
+      float: left
+      margin: 5px 0
+
+      a
+        margin-right: 10px
+
+    .contacts
+      float: right
+      +border-radius
+      background-color: #b1d7b2
+      padding: 3px 10px
+      margin-top: 2px
+
+.header
+  +clearfix
+  background: #fafafa image_url('header_bg.png') repeat-x left
+  height: 115px
+
+  .logo
+    float: left
+    height: 120px
+    margin: 5px 30px 0 30px
+    width: 120px
+
+    a
+      background: image_url('logo.png') no-repeat
+      display: block
+      height: 120px
+      text-indent: -99999px
+      position: absolute
+      width: 120px
+      z-index: 4
+
+  .site_title
+    float: left
+    font-size: 23px
+    font-family: Arial, Tahoma, sans-serif
+    margin: 10px 0 0 0
+
+    a
+      +clearfix
+      color: #000
+      display: block
+      text-decoration: none
+
+    .desc
+      display: block
+      color: #808080
+      font-size: 16px
+      line-height: 20px
+
+  .search_block
+    font-size: 14px
+    float: left
+    margin: 9px 0 0 0
+    width: 500px
+
+    .inputs
+      float: left
+      margin: 0 5px 0 0
+
+      input
+        outline: none
+        border: 1px solid #ccc
+        height: 21px
+        line-height: 17px
+        padding: 0 7px
+        width: 400px
+
+    .buttons
+      input
+        +background-image(linear-gradient(#f6f6f6, #e1e1e1))
+        +border-radius(2px)
+        cursor: pointer
+        border: 1px solid #c0c0c0
+        height: 23px
+        line-height: 20px
+        padding: 0
+        width: 63px
+
+  .link_to_department
+    width: 180px
+    float: right
+    background: #fff image_url('subdivision_link.png') no-repeat right top
+    border: 1px solid #bfbfbf
+    padding: 10px 43px 10px 10px
+    margin-top: 17px
+
+.footer
+  +clearfix
+  background: image_url('footer_bg.png') repeat-x left
+  color: #fff
+  font-size: 13px
+  height: 152px
+
+  a
+    color: #fff
+
+  .contacts
+    +clearfix
+    float: left
+    margin: 20px 0 0 16px
+    width: 280px
+
+    h5
+      font-size: 15px
+      margin: 0 0 11px 0
+
+    p
+      margin: 0 0 7px 0
+
+  .social_links
+    float: left
+    margin: 21px 5px 0 609px
+
+    ul
+      +clearfix
+
+      li
+        float: left
+        margin: 0 7px 0 0
+
+        a
+          background: image_url('social_links.png') no-repeat
+          display: block
+          height: 25px
+          text-indent: -9999px
+          width: 24px
+
+        .rss
+          background-position: 0px 0px
+
+        .vkontakte
+          background-position: -32px 0px
+
+        .facebook
+          background-position: -64px 0px
+
+        .twitter
+          background-position: -94px 0px
+
+        .livejournal
+          background-position: -125px 0px
+
+  .copyrights
+    float: left
+    margin: 38px 15px 0 506px
+    text-align: right
+
+    li
+      margin: 0 0 8px 0

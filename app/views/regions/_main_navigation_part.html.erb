@@ -1,0 +1,39 @@
+<div class="main_menu">
+  <div class="inner">
+    <ul>
+      <% object.values.first['children'].each do |name, item| %>
+        <li <%= 'class=active' if item['selected'] && item['children'] %>>
+          <%= link_to item['title'], item['path'] %>
+
+          <% if item['children'] %>
+            <div class="submenu_floated">
+              <div>
+                <% i = -1 %>
+                <% count = item['children'].count %>
+                <% first_group, second_group = item['children'].partition{ i += 1; i < (count/2.0).ceil } %>
+
+                <ul>
+                  <% first_group.each do |name, item| %>
+                    <li>
+                      <%= link_to item['title'], item['path'] %>
+                    </li>
+                  <% end %>
+                </ul>
+
+                <ul>
+                  <% second_group.each do |name, item| %>
+                    <li>
+                      <%= link_to item['title'], item['path'] %>
+                    </li>
+                  <% end %>
+                </ul>
+
+              </div>
+            </div>
+          <% end %>
+
+        </li>
+      <% end if object.values.first['children'] %>
+    </ul>
+  </div>
+</div>

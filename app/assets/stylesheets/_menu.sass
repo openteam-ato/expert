@@ -1,0 +1,194 @@
+.main_menu
+  background: #f7f7f7 image_url('main_menu_bg.png') repeat-x left
+  height: 42px
+
+  .inner
+    overflow: visible
+
+  ul
+    width: 100%
+    display: table
+    +min-height(42px)
+    background: image_url('main_menu_delimiter.png') no-repeat left
+
+    li:first-child:nth-last-child(1)
+      width: 100%
+
+    @for $i from 2 through 10
+      li:first-child:nth-last-child(#{$i}),
+      li:first-child:nth-last-child(#{$i}) ~ li
+        width: percentage(1/$i)
+
+    li
+      display: table-cell
+
+      &.active
+        background: image_url('main_menu_active.png') no-repeat center bottom
+        height: 49px
+        position: relative
+
+      a
+        background: image_url('main_menu_delimiter.png') no-repeat right
+        color: #000
+        display: block
+        text-align: center
+        font-size: 14px
+        height: 42px
+        line-height: 42px
+        padding: 0 14px
+        text-decoration: none
+        text-transform: uppercase
+
+      &:hover
+        +single-box-shadow(#b3b3b3, 0, 0, 10px, 2px)
+        background: #f7f7f7
+
+        a
+          background: #f7f7f7
+          position: relative
+          z-index: 3
+
+        .submenu_floated
+          +single-box-shadow(#b3b3b3, 0, 0, 10px, 2px)
+          display: block
+          margin-left: -1px
+          margin-top: -5px
+
+      .submenu_floated
+        +clearfix
+        background: #558754
+        display: none
+        padding: 0 0 11px 0
+        position: absolute
+        z-index: 2
+        width: 372px
+
+        div
+          +clearfix
+          background: #f7f7f7
+          border: 1px solid #b3b3b3
+          border-top: none
+          padding: 24px 0 0 29px
+
+          ul
+            background: none
+            float: left
+            margin: 0 30px 0 0
+            padding: 0
+            width: 140px
+
+            li
+              width: 140px
+
+              &:hover
+                +single-box-shadow(none)
+                background: none
+                height: auto
+
+              a
+                background: none
+                color: #005fab
+                font-size: 12px
+                height: auto
+                line-height: 16px
+                margin: 0 0 20px 0
+                padding: 0
+                text-decoration: underline
+                text-transform: none
+
+.submenu_opened
+  background: #3e7541
+  border: 1px solid #005504
+    left: none
+    right: none
+  +background-image(linear-gradient(#3e7541, #558754, #3e7541))
+  display: block
+
+  .inner
+    margin-top: 18px
+    padding: 0 20px 18px
+    width: 936px
+
+  h3
+    color: #fff
+    font-size: 18px
+    margin-bottom: 15px
+    a
+      color: #fff
+
+  .active
+    a
+      text-decoration: none
+
+  li
+    border-right: 1px solid #83b782
+    float: left
+    padding: 0 7px 0 0
+    margin: 0 7px 7px 0
+
+    a
+      color: #fff
+      font-size: 13px
+
+    &.subnavigation_title
+      color: #eee
+      font-weight: bold
+      border-right: none
+      padding-right: 0
+
+    &:last-child
+      border-right: none
+      padding-right: 0
+      margin-right: 0
+  &.bottom_subnavigation
+    background: #d8d8d8
+    border-top: 1px solid #d8d8d8
+    border-bottom: 1px solid #c0c0c0
+    +background-image(linear-gradient(#d8d8d8, #efefef, #d8d8d8))
+    h3
+      color: #4d4d4d
+    li
+      border-color: #aaa
+    a
+      color: #4d4d4d
+    .active
+      a
+        color: #5d5d5d
+
+.bottom_navigation
+  +clearfix
+  background: #ebebeb
+  border-top: 1px dotted #7f7f7f
+
+  .inner
+    padding: 31px 28px
+    width: 920px
+
+    div
+      float: left
+      margin: 0 32px 0 0
+      width: 158px
+
+    .last
+      margin: 0
+
+    h3
+      border-bottom: 1px solid #808080
+      height: 75px
+
+      a
+        color: #000
+        font-size: 17px
+        line-height: 22px
+
+    ul
+      margin: 8px 0 0 0
+
+      li
+        margin: 0 0 12px 0
+
+        a
+          color: #4d4d4d
+          font-size: 12px
+          line-height: 18px
+

@@ -2,12 +2,62 @@
 <html lang='ru'>
   <head>
     <meta charset='UTF-8'>
-    <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} — #{strip_tags(@site_name.content.body)}".squish.html_safe %></title>
+    <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} — #{strip_tags(@site_name.content.body)}".squish %></title>
     <%= stylesheet_link_tag 'application', :media => 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+
+    <div class='top'>
+      <div class='inner'>
+        <div class='links'>
+          <a href='http://tomsk.gov.ru/'>Администрация Томской области</a>
+          <a href='/ru/sitemap/'>Карта сайта</a>
+        </div>
+        <div class='contacts'>
+          Контактное лицо: <strong>Загородняя Мария Сергеевна, 8 (3822) 517-987</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class='header'>
+      <div class='inner'>
+        <div class='logo'>
+          <%= link_to t('advisory_councils'), '/', :title => t('advisory_councils_full_name') %>
+        </div>
+        <div class='site_title'>
+          <%= link_to '/', :title => t('advisory_councils_full_name') do %>
+            <%= t('advisory_councils') %>
+            <span class='desc'><%= t('by_deputy_governor') %></span>
+          <% end %>
+          <div class='search_block'>
+            <form action='/ru/search/'>
+              <ul class='inputs'>
+                <li>
+                  <input type='text' name='parts_params[search][q]' value='<%= params[:parts_params].try(:[], :search).try(:[], :q) %>' />
+                </li>
+              </ul>
+              <ul class='buttons'>
+                <li>
+                  <input type='submit' value='Поиск' />
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+        <div class='link_to_department'>
+          <a href='http://tomsk.gov.ru/ru/organy-vlasti/administratsiya-tomskoy-oblasti/departament-ekspertno-analiticheskoy-raboty/'>Департамент <span class='nobr'>экспертно-аналитической</span> работы</a>
+        </div>
+      </div>
+    </div>
+
+    <%= render "regions/main_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
+
     <%= yield %>
+
+    <div class='validate'>
+      <a target='_blank' href="http://validator.w3.org/check?uri=<%= request.original_url %>">validate html by w3c</a>
+    </div>
   </body>
 </html>

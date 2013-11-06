@@ -26,7 +26,6 @@ end
 
 group :development do
   gem 'brakeman'
-  gem 'quiet_assets'
   gem 'openteam-capistrano'
   gem 'capistrano-unicorn'
   gem 'thin'
