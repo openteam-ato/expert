@@ -25,6 +25,14 @@ body
   .nobr
     white-space: nowrap
 
+  .floatl
+    float: left
+    margin: 0 10px 10px 0
+
+  .floatr
+    float: right
+    margin: 0 0 10px 10px
+
   .inner
     width: 980px
     margin: 0 auto
@@ -132,12 +140,17 @@ body
 
 .validate
   text-align: center
-  margin-top: 10px
+  position: relative
   border-top: 2px solid #f7f7f7
+  padding: 10px 0
 
   &:before
     content: ' '
     display: block
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
     background-color: #f7f7f7
     border-top: 1px dotted #7f7f7f
     padding-top: 2px

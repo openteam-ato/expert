@@ -1,0 +1,13 @@
+<% if object.items.any? %>
+  <div class='main_page_news_list'>
+    <ul>
+      <% object.items.each_with_index do |item, index| %>
+        <li>
+          <div class='date'><%= l Date.parse(item.since), :format => :long %></div>
+          <h5><%= link_to item.title, item.link, :title => item.title %></h5>
+          <%= content_tag :div, item.annotation.html_safe, :class => :annotation if item.annotation %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
