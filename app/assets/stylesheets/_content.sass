@@ -16,7 +16,7 @@
   .governor_message
     position: relative
     border-top: 1px solid #f7f7f7
-    padding-top: 15px
+    padding-top: 18px
 
     &:before
       content: ' '
@@ -31,6 +31,9 @@
 
     p
       margin-bottom: 10px
+
+    .floatl
+      margin-top: 5px
 
   .main_page_news_list
     position: relative
@@ -59,3 +62,29 @@
       background-color: #f7f7f7
       border-bottom: 1px dotted #7f7f7f
       padding-bottom: 2px
+
+    h3
+      font-size: 20px
+      margin: 10px 0
+
+    ul
+      +clearfix
+
+      li
+        float: left
+        width: 360px
+        margin: 0 20px 20px 0
+
+        &:nth-child(2n)
+          margin-right: 0
+
+        &:nth-child(2n+1)
+          clear: left
+
+        .date
+          color: #808080
+          font-size: 11px
+
+        h5
+          font-size: 14px
+          margin: 5px 0
