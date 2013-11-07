@@ -67,6 +67,23 @@
 
     <%= yield %>
 
+    <div class='footer'>
+      <div class='inner'>
+        <div class='copyrights'>
+          <ul>
+            <li>Разработка: <a href='http://openteam.ru'>OpenTeam</a></li>
+          </ul>
+        </div>
+        <div class="contacts">
+          <h5>Контакты</h5>
+          <p><%= t('advisory_councils_full_name') %></p>
+          <p>634050, г.Томск, пл. Ленина, 6</p>
+          <p>+7 (382-2) 510-338, +7 (382-2) 510-398</p>
+          <p>+7 (382-2) 517-987, <a href='mailto:expert-sovet@tomsk.gov.ru'>expert-sovet@tomsk.gov.ru</a></p>
+        </div>
+      </div>
+    </div>
+
     <% if Rails.env.development? %>
       <div class='validate'>
         <a target='_blank' href="http://validator.w3.org/check?uri=<%= request.original_url %>">validate html by w3c</a>

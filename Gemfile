@@ -25,9 +25,9 @@ group :default do
 end
 
 group :development do
-  gem 'brakeman'
-  gem 'openteam-capistrano'
+  gem 'brakeman', :require => false
   gem 'capistrano-unicorn', '0.1.7', :require => false
+  gem 'openteam-capistrano'
   gem 'thin'
 end
 

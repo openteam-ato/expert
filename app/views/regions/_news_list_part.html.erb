@@ -1,0 +1,29 @@
+<% if object.items.any? %>
+  <div class="news_list">
+    <ul>
+      <% object.items.each_with_index do |item, index| %>
+        <li <%= 'class=last' if (index+1)%3 == 0 %>>
+          <span class="date"><%= l Date.parse(item.since), :format => :long %></span>
+          <h5><%= link_to item.title, item.link, :title => item.title %></h5>
+
+          <% if item.images.any? && item.images.first  %>
+            <% image = item.images.first.thumbnail ? item.images.first.thumbnail : item.images.first %>
+            <%= image_tag image.url, :title => image.description, :width => image.width, :height => image.height %>
+          <% end %>
+
+          <% if item.annotation %>
+            <div class="annotation">
+              <%= item.annotation.html_safe %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <% if object.pagination %>
+      <% @array = object.items %>
+      <% @array = Kaminari.paginate_array(@array, :total_count => object.pagination.total_count).page(object.pagination.current_page).per(object.pagination.per_page) %>
+
+      <%= paginate @array, :outer_window => 3 %>
+    <% end %>
+  </div>
+<% end %>

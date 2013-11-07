@@ -1,0 +1,8 @@
+<div class='content'>
+  <div class='inner'>
+    <%= render_partial_for_region(@content_first) if @content_first %>
+    <%= render_partial_for_region(@content_second) if @content_second %>
+    <%= render_partial_for_region(@content_third) if @content_third %>
+    <%= yield :social_links %>
+  </div>
+</div>
