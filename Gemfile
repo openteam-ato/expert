@@ -27,10 +27,10 @@ end
 group :development do
   gem 'brakeman'
   gem 'openteam-capistrano'
-  gem 'capistrano-unicorn'
+  gem 'capistrano-unicorn', '0.1.7', :require => false
   gem 'thin'
 end
 
-group :development do
+group :production do
   gem 'unicorn'
 end

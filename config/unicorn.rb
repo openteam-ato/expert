@@ -8,7 +8,7 @@ app_dir = File.expand_path('../../', __FILE__)
 # Set unicorn options
 worker_processes 2
 preload_app true
-timeout 360
+timeout 180
 
 # Fill path to your app
 working_directory app_dir

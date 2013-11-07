@@ -62,8 +62,8 @@ GEM
     capistrano-db-tasks (0.2)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
-    capistrano-unicorn (0.2.0)
-      capistrano (< 3.0)
+    capistrano-unicorn (0.1.7)
+      capistrano
     chronic (0.10.2)
     chunky_png (1.2.9)
     coffee-rails (3.2.2)
@@ -232,7 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   brakeman
-  capistrano-unicorn
+  capistrano-unicorn (= 0.1.7)
   coffee-rails
   compass-rails
   curb
