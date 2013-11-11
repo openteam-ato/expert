@@ -1,0 +1,8 @@
+<h1><%= object.title.gilensize.html_safe %></h1>
+
+<div class='blue_pages'>
+  <%= render :partial => 'commons/chief', :locals => { :object => object } %>
+  <div class="dossier">
+    <%= object.dossier.gilensize.html_safe %>
+  </div>
+</div>

@@ -70,3 +70,59 @@
       .image
         width: 80px
         height: 107px
+
+  .chief
+    +clearfix
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    border: 1px solid #ccc
+    display: block
+    float: right
+    margin: 0px 0 0 20px
+    width: 217px
+
+    .title
+      +min-height(44px)
+      display: table-cell
+      font-size: 14px
+      line-height: 16px
+      padding: 15px 10px
+      text-align: center
+      vertical-align: middle
+      width: 217px
+
+    img
+      display: block
+      float: none
+      margin: 0 auto
+
+    .fio
+      background: #ededed
+      font-size: 16px
+      line-height: 20px
+      padding: 12px 10px 20px
+      text-align: center
+
+      .phones, .emails
+        display: block
+        font-size: 12px
+        margin: 16px 0 0 0
+
+    .small
+      font-size: 11px
+
+  .dossier
+    ul, ol, p
+      margin-bottom: 10px
+
+    ul li
+      +clearfix
+      margin-bottom: 5px
+
+      &:before
+        display: block
+        content: '\2013'
+        float: left
+        margin: 0 10px 0 0
+
+      &:last-child
+        margin-bottom: 0
