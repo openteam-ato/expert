@@ -12,5 +12,6 @@
  *
  * = require jquery
  * = require archive_collapser
+ * = require colorbox
  * = require main
  */
