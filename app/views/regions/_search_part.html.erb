@@ -1,0 +1,17 @@
+<h1><%= @page_title %></h1>
+<div class='search_results'>
+  <ul>
+    <% object.items.each do |item| %>
+      <li>
+        <h4><%= link_to item.title.html_safe, item.url %></h4>
+        <p><%= item.excerpt.html_safe %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<% if object.pagination %>
+  <% @array = object.items %>
+  <% @array = Kaminari.paginate_array(@array, :total_count => object.pagination.total_count).page(object.pagination.current_page).per(object.pagination.per_page) %>
+  <%= paginate @array, :outer_window => 3 %>
+<% end %>
