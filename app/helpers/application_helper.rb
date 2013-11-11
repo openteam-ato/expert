@@ -67,4 +67,9 @@ module ApplicationHelper
     archive_monthes.reverse.group_by(&:year)
   end
 
+  def extension(filename)
+    return if filename.blank?
+    filename.match(/\.(\w+)$/).try(:[], 1).downcase
+  end
+
 end

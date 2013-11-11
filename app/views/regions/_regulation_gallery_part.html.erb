@@ -1,0 +1,6 @@
+<div class='regulation'>
+  <%= link_to object.gallery_pictures.first.picture_url, :class => extension(object.gallery_pictures.first.picture_url) do %>
+    <span class='icon'></span>
+    <%= object.gallery_pictures.first.description %>
+  <% end %>
+</div>
