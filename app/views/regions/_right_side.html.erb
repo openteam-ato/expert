@@ -1,0 +1,69 @@
+<% if @right_side_navigation %>
+  <div class="right_side_navigation noindex">
+    <h4><%= @right_side_navigation.content.values.first['title'] %></h4>
+    <%= render_navigation(@right_side_navigation.content.values.first['children']) %>
+    <div class="right_side_bottom"></div>
+  </div>
+<% end %>
+
+<% if @right_side_links %>
+  <div class="right_side_links <%= 'subdivision_links' if @right_side_links.content.body.match(/subdivision_links/) %>">
+    <h4><%= @right_side_links.part_title %></h4>
+    <%= @right_side_links.content.body.html_safe %>
+  </div>
+<% end %>
+
+<% if @right_side_facts %>
+  <div class="right_side_facts">
+    <h4>Факты</h4>
+    <%= @right_side_facts.content.body.html_safe %>
+    <div class="right_side_bottom"></div>
+  </div>
+<% end %>
+
+<% if @right_side_charts %>
+  <div class="right_side_charts">
+    <%= @right_side_charts.content.body.html_safe %>
+  </div>
+<% end %>
+
+<% if @right_side_twitter %>
+  <div class="right_side_twitter">
+    <%= @right_side_twitter.content.body.html_safe %>
+  </div>
+<% end %>
+
+<% if @right_side_smi_publications && @right_side_smi_publications.content && @right_side_smi_publications.content.items.present? %>
+  <div class="right_side_smi_publications">
+    <h4><%= @right_side_smi_publications.content.title ? @right_side_smi_publications.content.title : 'Публикации в СМИ' %></h4>
+    <ul>
+      <% @right_side_smi_publications.content.items.each do |publication| %>
+        <li>
+          <p class="date"><%= l publication.since.to_date, :format => "%d %B %Y" %></p>
+          <p class="title">
+            <% unless publication.source_link.blank? %>
+              <%= link_to publication.title, publication.source_link, :rel => "nofollow", :target => "_blank" %>
+            <% else %>
+              <%= link_to publication.title, publication.link %>
+            <% end %>
+          </p>
+          <% unless publication.annotation.blank? %>
+            <p class="annotation">
+              <%= sanitize(publication.annotation, :tags => []).truncate(200, :separator => ' ').html_safe %>
+            </p>
+          <% end %>
+          <% unless publication.source_link.blank? %>
+            <p class="source">
+              <strong>Источник:</strong>
+              <% unless publication.source.blank? %>
+                <%= link_to publication.source, publication.source_link, :rel => "nofollow", :target => "_blank" %>
+              <% else %>
+                <%= link_to publication.source_link, publication.source_link, :rel => "nofollow", :target => "_blank" %>
+              <% end %>
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

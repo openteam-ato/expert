@@ -1,0 +1,242 @@
+.right_side
+  float: right
+  margin: 20px 0 0 20px
+  width: 220px
+
+  .right_side_bottom
+    background: #3e7a3d
+    border-top: 1px solid #ccc
+    height: 8px
+
+  .right_side_navigation
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    font-size: 13px
+    margin: 0 0 26px 0
+
+    h4
+      border-bottom: 2px solid #808080
+      font-size: 17px
+      line-height: 20px
+      margin: 0 18px
+      padding: 11px 0 10px 0
+
+    ul
+      padding: 14px 18px 0 18px
+
+      li
+        border-bottom: 1px solid #ccc
+        padding: 0 0 10px 0
+        line-height: 20px
+        margin: 0 0 11px 0
+
+        a
+          color: #000
+          text-decoration: none
+
+          &:hover
+            text-decoration: underline !important
+
+        &:last-child
+          border: none
+          margin: 0
+
+        &.selected
+          a
+            font-weight: bold
+
+          ul
+            li
+              a
+                font-weight: normal
+              &.selected a
+                margin-left: -8px
+                padding-left: 8px
+                background: transparent image_url('right_side_second_selected.png') no-repeat 0 4px
+
+        ul
+          border: none
+          padding: 0 0 0 10px
+
+          li
+            padding: 7px 0 0
+
+
+  .entry_image
+    margin: 0 0 47px 0
+
+    img
+      border: 1px solid #bfbfbf
+      display: block
+      margin: 0
+
+    .description
+      font-size: 11px
+      line-height: 14px
+      margin: 10px 0 0 0
+
+  .more_like_this
+    ul
+      margin: 23px 0 0 0
+
+      li
+        margin: 0 0 12px 0
+        padding: 0
+
+        &:before
+          display: none
+
+
+  .right_side_facts
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    margin: 0 0 26px 0
+
+    h4
+      background: #3e7a3d image_url('right_side_head_bottom.png') no-repeat bottom center
+      color: #fff
+      font-size: 17px
+      margin: 0
+      padding: 9px 0 19px 19px
+
+    ul
+      +clearfix
+      counter-reset: li
+      padding: 14px 18px 0 11px
+
+      li
+        +clearfix
+        color: #4D4D4D
+        font-family: Georgia, serif
+        font-size: 14px
+        line-height: 20px
+        margin: 0 0 10px 0
+        padding: 0 0 0 28px
+        position: relative
+
+        &:before
+          color: #4d4d4d
+          content: counter(li)"."
+          counter-increment: li
+          font-size: 22px
+          float: left
+          left: 0
+          position: absolute
+          width: 28px
+
+  .right_side_links
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    padding: 16px 30px 0 19px
+    margin: 0 0 26px 0
+
+    h4
+      font-size: 16px
+      margin: 0 0 11px 0
+
+    ul
+      +clearfix
+      li
+        margin: 0 0 16px 0
+
+        a
+          font-size: 12px
+
+    &.subdivision_links
+      background: image_url('subdivision_link.png') no-repeat right top
+
+  .right_side_charts
+    +clearfix
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    font-size: 10px
+    padding: 16px 19px
+    margin: 0 0 26px 0
+
+  .events_archive
+    font-size: 12px
+    margin: 0 0 0 27px
+
+    ul
+      li
+        +clearfix
+        margin: 0 0 18px 0
+
+        a
+          height: 16px
+          line-height: 16px
+          font-size: 12px
+
+        .year
+          float: left
+          font-size: 14px
+          margin-top: 3px
+
+        .active
+          color: #000
+          text-decoration: none
+
+        ul
+          +clearfix
+          display: none
+          font-size: 14px
+          padding: 0 0 0 25px
+
+      .show
+        ul
+          display: block
+
+  .right_side_twitter
+    margin-bottom: 26px
+    div#twtr-widget-1.twtr-widget
+      +single-box-shadow(#ccc, 0, -3px, 10px, -1px)
+      div.twtr-doc
+        +border-radius(0)
+      div.twtr-bd div.twtr-timeline
+        +border-radius(0)
+        div.twtr-tweets div.twtr-tweet div.twtr-tweet-wrap div.twtr-tweet-text p
+          font-size: 12px
+          a.twtr-user
+            display: none
+      div.twtr-hd h3
+        display: none
+      div.twtr-ft
+        height: 1px
+
+  .right_side_smi_publications
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    margin: 0 0 26px 0
+
+    h4
+      background: #3e7a3d image_url('right_side_head_bottom.png') no-repeat bottom center
+      color: #fff
+      font-size: 17px
+      margin: 0
+      padding: 9px 0 19px 19px
+    ul
+      margin: 14px 18px 0
+      li
+        border-bottom: 1px solid #ccc
+        margin-bottom: 10px
+        padding-bottom: 10px
+        &:last-child
+          border: none
+          padding: 0
+          margin-bottom: 14px
+        p
+          margin-bottom: 0
+        .date
+          font-size: 11px
+        .title
+          font-size: 14px
+          margin-bottom: 5px
+        .annotation
+          line-height: 16px
+        .source
+          margin-top: 5px
