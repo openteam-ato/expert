@@ -1,0 +1,611 @@
+.chief
+  +clearfix
+  +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+  border: 1px solid #ccc
+  display: block
+  float: right
+  margin: 0px 0 0 20px
+  width: 217px
+
+  .title
+    +min-height(44px)
+    display: table-cell
+    font-size: 14px
+    line-height: 16px
+    padding: 15px 10px
+    text-align: center
+    vertical-align: middle
+    width: 217px
+
+  img
+    display: block
+    float: none
+    margin: 0 auto
+
+  .fio
+    background: #ededed
+    font-size: 16px
+    line-height: 20px
+    padding: 12px 10px 20px
+    text-align: center
+
+    .phones, .emails
+      display: block
+      font-size: 12px
+      margin: 16px 0 0 0
+
+  .small
+    font-size: 11px
+
+.blue_pages
+  h2
+    margin: 22px 0 30px 0
+
+  h5
+    font-size: 13px
+    margin: 14px 0
+
+  strong
+    font-weight: bold
+
+  .information
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+    font-size: 13px
+
+  .contacts
+    +clearfix
+    margin: 0 0 26px 0
+
+    ul
+      +clearfix
+
+      li
+        border-bottom: 1px solid #e0e0e0
+        font-size: 13px
+        line-height: 20px
+        margin: 0 0 2px 0
+        padding: 0 0 4px 0
+
+        .label
+          +inline-block
+          font-weight: bold
+          line-height: 20px
+          width: 85px
+
+  .dossier
+    ul
+      li
+        +clearfix
+        line-height: 19px
+        padding: 0 0 12px 28px
+
+        &:before
+          content: "\2013"
+          float: left
+          left: -28px
+          padding: 0 0 0 0
+          position: relative
+          width: 0
+
+  .links
+    +clearfix
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    border: 1px solid #ccc
+    clear: both
+    display: block
+    float: right
+    margin: 22px 0 0 20px
+    width: 217px
+
+    h3
+      background: #3e7a3d image_url('right_side_head_bottom.png') no-repeat bottom center
+      color: #fff
+      font-size: 17px
+      margin: 0
+      padding: 9px 0 19px 19px
+
+    .right_side_bottom
+      background: #3e7a3d
+      border-top: 1px solid #ccc
+      height: 8px
+
+    ul
+      +clearfix
+      font-size: 12px
+      padding: 11px 17px 12px 17px
+
+      li
+        line-height: 14px
+        margin: 0 0 12px 0
+
+  .employees
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+
+    li
+      +clearfix
+      margin: 0 0 32px 0
+
+      .photo
+        float: left
+        margin: 0 10px 0 0
+
+      span
+        display: block
+        float: left
+        font-size: 13px
+        line-height: 18px
+
+      .fio
+        float: none
+        font-size: 16px
+        margin: 0 0 5px 0
+
+      .title
+        float: none
+        color: #666
+        margin: 0 0 10px 0
+
+      .phones
+        margin: 0 15px 0 0
+
+      .emails
+        margin: 0 15px 0 0
+
+  .regulation
+    +clearfix
+    float: right
+    margin: 20px 0 20px 20px
+    text-align: center
+
+    a
+      background: image_url('office_doc.png') no-repeat top center
+      display: block
+      line-height: 18px
+      padding: 90px 0 0 0
+      width: 108px
+
+  .subdivisions
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+
+    h3
+      margin: 0
+
+    .subdivision_information
+      display: none
+      padding: 15px 0 0 20px
+
+    h4
+      font-size: 14px
+      font-weight: bold
+      margin: 10px 0 25px
+
+    li
+      +clearfix
+      margin: 0 0 20px 0
+
+    .contacts
+      span
+        display: block
+        font-size: 13px
+        line-height: 15px
+
+    .employees
+      border: none
+
+.collapse_item
+  display: none
+
+.slider
+  +inline-block
+  border-bottom: 1px dashed #005fab
+  text-decoration: none
+
+  &:after
+    border: none
+    color: #558754
+    content: '\2B'
+    display: inline-block
+    float: right
+    font-size: 12px
+    font-weight: bold
+    line-height: 16px
+    margin: 0 0 0 0
+    text-align: right
+    text-decoration: none
+    position: absolute
+    height: 15px
+    width: 16px
+
+  &.open
+    border-color: #000
+    color: #000
+
+    &:after
+      color: #000
+      content: '\2013'
+
+.content
+  .reports, .documents
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+
+    &.noborder
+      border-bottom: 1px dotted transparent
+
+    li
+      font-size: 13px
+      line-height: 16px
+      margin: 0 0 18px 0
+      padding: 0 !important
+
+      &:before
+        content: none
+        float: none
+        left: 0
+        padding: 0 0 0 0
+        position: static
+        width: 0
+
+    a
+      +min-height(20px)
+      display: block
+
+a
+  .icon
+    +clearfix
+    background: image_url('mime.png') no-repeat
+    background-position: -52px 0
+    float: left
+    height: 18px
+    text-indent: -9999px
+    margin: 0 12px 0 0
+    width: 16px
+
+.x_7z
+  .icon
+    background-position: -952px 0
+
+.chm
+  .icon
+    background-position: -306px 0
+
+.divx
+  .icon
+    background-position: -680px 0
+
+.html,
+.cgi
+  .icon
+    background-position: -357px 0
+
+.lua
+  .icon
+    background-position: -1003px 0
+
+.odi
+  .icon
+    background-position: -476px 0
+
+.png
+  .icon
+    background-position: -646px 0
+
+.rpm
+  .icon
+    background-position: -1445px 0
+
+.tar
+  .icon
+    background-position: -782px 0
+
+.wmv
+  .icon
+    background-position: -867px 0
+
+.aiff
+  .icon
+    background-position: -1207px 0
+
+.java
+  .icon
+    background-position: -493px 0
+
+.doc, .msword, .ms-word
+  .icon
+    background-position: -408px 0
+
+.htm
+  .icon
+    background-position: -1292px 0
+
+.freemind
+  .icon
+    background-position: -629px 0
+
+.odp
+  .icon
+    background-position: -204px 0
+
+.ppt
+  .icon
+    background-position: -1190px 0
+
+.rtf
+  .icon
+    background-position: -510px 0
+
+.tex
+  .icon
+    background-position: -1394px 0
+
+.xls
+  .icon
+    background-position: -255px 0
+
+.ai
+  .icon
+    background-position: -714px 0
+
+.conf
+  .icon
+    background-position: -459px 0
+
+.dot
+  .icon
+    background-position: -102px 0
+
+.image
+  .icon
+    background-position: -238px 0
+
+.quicktime
+  .icon
+    background-position: -85px 0
+
+.ods
+  .icon
+    background-position: -68px 0
+
+.ps
+  .icon
+    background-position: -1139px 0
+
+.pgp-signature
+  .icon
+    background-position: -816px 0
+
+.tar
+  .icon
+    background-position: -1309px 0
+
+.xml
+  .icon
+    background-position: -272px 0
+
+.pgp
+  .icon
+    background-position: -34px 0
+
+.c
+  .icon
+    background-position: -1122px 0
+
+.rfc822
+  .icon
+    background-position: -935px 0
+
+.image
+  .icon
+    background-position: -425px 0
+
+.mpeg
+  .icon
+    background-position: -561px 0
+
+.odt
+  .icon
+    background-position: -187px 0
+
+.python
+  .icon
+    background-position: -612px 0
+
+.sql
+  .icon
+    background-position: -17px 0
+
+.txt
+  .icon
+    background-position: -1326px 0
+
+.xpinstall
+  .icon
+    background-position: -442px 0
+
+.audio
+  .icon
+    background-position: -918px 0
+
+.cpp
+  .icon
+    background-position: -391px 0
+
+.pre-encrypted
+  .icon
+    background-position: -1258px 0
+
+.jar
+  .icon
+    background-position: -544px 0
+
+.mpeg
+  .icon
+    background-position: -1156px 0
+
+.ogg
+  .icon
+    background-position: -136px 0
+
+.realaudio, .ram
+  .icon
+    background-position: -578px 0
+
+.shockwave-flash
+  .icon
+    background-position: -748px 0
+
+.vcard
+  .icon
+    background-position: -884px 0
+
+.xvid
+  .icon
+    background-position: -289px 0
+
+.stream
+  .icon
+    background-position: -731px 0
+
+.csharp
+  .icon
+    background-position: -663px 0
+
+.file
+  .icon
+    background-position: -51px 0
+
+.java
+  .icon
+    background-position: -1224px 0
+
+.m
+  .icon
+    background-position: -1173px 0
+
+.pdf
+  .icon
+    background-position: -1037px 0
+
+.rar
+  .icon
+    background-position: -1020px 0
+
+.xml
+  .icon
+    background-position: -1088px 0
+
+.video
+  .icon
+    background-position: -765px 0
+
+.zip
+  .icon
+    background-position: -340px 0
+
+.bzip2
+  .icon
+    background-position: -799px 0
+
+.css
+  .icon
+    background-position: -833px 0
+
+.gif
+  .icon
+    background-position: -527px 0
+
+.jpeg
+  .icon
+    background-position: -323px 0
+
+.odc
+  .icon
+    background-position: -901px 0
+
+.pgp
+  .icon
+    background-position: -850px 0
+
+.ruby
+  .icon
+    background-position: -119px 0
+
+.xml
+  .icon
+    background-position: -969px 0
+
+.vsd
+  .icon
+    background-position: -1241px 0
+
+.coldfusion
+  .icon
+    background-position: -697px 0
+
+.csv
+  .icon
+    background-position: -986px 0
+
+.gzip, .gunzip
+  .icon
+    background-position: -1360px 0
+
+.jpg
+  .icon
+    background-position: -1105px 0
+
+.odt
+  .icon
+    background-position: -1054px 0
+
+.php
+  .icon
+    background-position: -1071px 0
+
+.sun-xml-impress
+  .icon
+    background-position: -1343px 0
+
+.wav
+  .icon
+    background-position: -1377px 0
+
+.cfm
+  .icon
+    background-position: -153px 0
+
+.deb
+  .icon
+    background-position: -595px 0
+
+.winhlp, .winhelp
+  .icon
+    background-position: -1275px 0
+
+.javascript, .js
+  .icon
+    background-position: -221px 0
+
+.odg
+  .icon
+    background-position: 0 0
+
+.perl
+  .icon
+    background-position: -374px 0
+
+.realmedia
+  .icon
+    background-position: -1428px 0
+
+.sun-xml-writer
+  .icon
+    background-position: -1411px 0
+
+.wma
+  .icon
+    background-position: -170px 0
+

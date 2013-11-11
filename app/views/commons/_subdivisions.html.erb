@@ -1,0 +1,75 @@
+<ul class='subdivisions need_collapser'>
+  <% object.subdivisions.each do |item| %>
+    <li>
+      <% if item.path %>
+        <%= link_to item.title, item.path if item.path %>
+      <% else %>
+        <h3><a href="#" class='slider'><%= item.title %></a></h3>
+
+        <div class="subdivision_information collapse_item">
+          <div class="contacts">
+            <span class='address'><%= item.address %></span>
+            <span class='phones'><%= item.phones %></span>
+            <span class='emails'>
+              <%= item.emails.map{|email| mail_to(email)}.join(', ').html_safe if item.emails %>
+            </span>
+            <span class='site'>
+              <%= link_to item.url, item.url if item.url? %>
+            </span>
+          </div>
+
+          <% if item.items %>
+            <h4>Сотрудники</h4>
+            <ul class='employees'>
+              <% item.items.each do |item| %>
+                <li>
+                  <% if item.link %>
+                    <%= link_to item.person, item.link, :class => 'fio' %>
+                  <% else %>
+                    <span class="fio"><%= item.person %></span>
+                  <% end %>
+                  <span class='title'><%= item.title %></span>
+                  <span class='phones'><%= item.phones %></span>
+                  <span class='emails'>
+                    <%= item.emails.map{|email| mail_to(email)}.join(', ').html_safe if item.emails %>
+                  </span>
+                  <span class="address"><%= item.address %></span>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if item.subdivisions %>
+            <ul>
+              <% item.subdivisions.each do |subdivision| %>
+                <li>
+                  <h4><%= subdivision.title %></h4>
+                  <% if item.items %>
+                    <h4>Сотрудники</h4>
+                    <ul class='employees'>
+                      <% subdivision.items.each do |item| %>
+                        <li>
+                          <% if item.link %>
+                            <%= link_to item.person, item.link, :class => 'fio' %>
+                          <% else %>
+                            <span class="fio"><%= item.person %></span>
+                          <% end %>
+                          <span class='title'><%= item.title %></span>
+                          <span class='phones'><%= item.phones %></span>
+                          <span class='emails'>
+                            <%= item.emails.map{|email| mail_to(email)}.join(', ').html_safe if item.emails %>
+                          </span>
+                          <span class="address"><%= item.address %></span>
+                        </li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </li>
+  <% end if object.subdivisions %>
+</ul>
+
