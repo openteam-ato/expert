@@ -131,3 +131,122 @@
 
       &:last-child
         margin-bottom: 0
+
+  .information
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+    font-size: 13px
+    margin-bottom: 15px
+
+  .contacts
+    +clearfix
+    margin-bottom: 15px
+
+    ul
+      +clearfix
+
+      li
+        border-bottom: 1px solid #e0e0e0
+        font-size: 13px
+        line-height: 20px
+        margin: 0 0 2px 0
+        padding: 0 0 4px 0
+
+        .label
+          +inline-block
+          font-weight: bold
+          line-height: 20px
+          width: 85px
+
+  .dossier
+    ul
+      li
+        +clearfix
+        line-height: 19px
+        padding: 0 0 12px 28px
+
+        &:before
+          content: "\2013"
+          float: left
+          left: -28px
+          padding: 0 0 0 0
+          position: relative
+          width: 0
+
+  .employees
+    +clearfix
+    border-bottom: 1px dotted #7f7f7f
+    margin-bottom: 15px
+
+    li
+      +clearfix
+      margin-bottom: 15px
+
+      .photo
+        float: left
+        margin: 0 10px 0 0
+
+      span
+        display: block
+        float: left
+        font-size: 13px
+        line-height: 18px
+
+      .fio
+        float: none
+        font-size: 16px
+        margin: 0 0 5px 0
+
+      .title
+        float: none
+        color: #666
+        margin-bottom: 5px
+
+      .phones
+        margin: 0 15px 0 0
+
+      .emails
+        margin: 0 15px 0 0
+
+  .regulation
+    +clearfix
+    float: right
+    margin: 20px 0 20px 20px
+    text-align: center
+
+    a
+      background: image_url('office_doc.png') no-repeat top center
+      display: block
+      line-height: 18px
+      padding: 90px 0 0 0
+      width: 108px
+
+  .subdivisions
+    +clearfix
+
+    h3
+      margin: 0
+
+    .subdivision_information
+      padding: 15px 0 0 20px
+
+    h4
+      font-size: 14px
+      font-weight: bold
+      margin: 10px 0 25px
+
+    li
+      +clearfix
+      margin-bottom: 10px
+
+      &:last-child
+        margin-bottom: 0
+
+    .contacts
+      span
+        display: block
+        font-size: 13px
+        line-height: 15px
+
+    .employees
+      border: none

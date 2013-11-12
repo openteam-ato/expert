@@ -1,12 +1,12 @@
-<ul class='subdivisions need_collapser'>
+<ul class='subdivisions'>
   <% object.subdivisions.each do |item| %>
     <li>
       <% if item.path %>
         <%= link_to item.title, item.path if item.path %>
       <% else %>
-        <h3><a href="#" class='slider'><%= item.title %></a></h3>
+        <h3><%= item.title %></h3>
 
-        <div class="subdivision_information collapse_item">
+        <div class="subdivision_information">
           <div class="contacts">
             <span class='address'><%= item.address %></span>
             <span class='phones'><%= item.phones %></span>
