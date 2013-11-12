@@ -1,0 +1,55 @@
+.content
+  .protocols
+    background-color: #f7f7f7
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    +box-shadow(#ccc 0 0 5px)
+    border: 1px solid #ccc
+    margin-bottom: 20px
+
+    h4
+      color: #fff
+      background-color: #3e7a3e
+      position: relative
+      font-size: 17px
+      padding: 5px 15px 7px
+      margin-bottom: 20px
+
+      &:after
+        top: 100%
+        border: solid transparent
+        content: ' '
+        height: 0
+        width: 0
+        position: absolute
+        pointer-events: none
+        border-top-color: #3e7a3e
+        border-width: 10px
+        left: 40px
+        margin-left: -10px
+
+    > ul
+      margin: 0 15px 15px
+
+      > li
+        border-bottom: 1px solid #ccc
+        margin-bottom: 10px
+        padding-bottom: 10px
+
+        &:last-child
+          border: none
+          margin: 0
+          padding: 0
+
+        .date
+          color: #808080
+          font-size: 11px
+          margin-bottom: 5px
+
+        .title
+          font-size: 14px
+          margin-bottom: 5px
+
+        .attachments li
+          margin-bottom: 5px
+
+
