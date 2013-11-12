@@ -1,13 +1,17 @@
 <h1><%= @page_title %></h1>
 <div class='search_results'>
+  <% if object.items.present? %>
   <ul>
     <% object.items.each do |item| %>
       <li>
-        <h4><%= link_to item.title.html_safe, item.url %></h4>
-        <p><%= item.excerpt.html_safe %></p>
+        <h4><%= link_to item.title.as_html, item.url %></h4>
+        <p><%= item.excerpt.as_html %></p>
       </li>
     <% end %>
   </ul>
+<% else %>
+  <p class='empty'>Нет результатов для заданных параметров</p>
+  <% end %>
 </div>
 
 <% if object.pagination %>
