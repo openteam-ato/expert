@@ -2,6 +2,7 @@
 
 <div class='blue_pages'>
   <div class='left'>
+    <p><strong>Адрес:</strong> <%= object.address %></p>
     <ul>
       <% object.items.each_with_index do |item, index| %>
         <li class='<%= index.zero? ? 'chief' : 'member' %>'>
@@ -14,20 +15,33 @@
               <% end %>
             </div>
           <% end %>
-          <div class='person'>
-            <% if item.link.present? %>
-              <%= link_to item.person.as_html, item.link %>
-            <% else %>
-              <%= item.person.as_html %>
+          <div class='clearfix'>
+            <div class='person'>
+              <% if item.link.present? %>
+                <%= link_to item.person.as_html, item.link %>
+              <% else %>
+                <%= item.person.as_html %>
+              <% end %>
+            </div>
+            <div class='title'><%= item.title.as_html %></div>
+            <% if item.address.present? %>
+              <div class='address'><strong>Адрес:</strong> <%= item.address %></div>
+            <% end %>
+            <% if item.phones.present? %>
+              <div class='phones'>
+                <%= item.phones.split(';').map { |phone| "#{content_tag :strong, phone.split(':').first + ':'} #{phone.split(':').second}" }.join(', ').html_safe %>
+              </div>
+            <% end %>
+            <% if item.emails.present? %>
+              <div class='emals'><strong>E-mail:</strong> <%= item.emails.map { |email| mail_to(email, email) }.join(', ').html_safe %></div>
             <% end %>
           </div>
-          <div class='title'><%= item.title.as_html %></div>
-          <div class='address'><%= item.address %></div>
         </li>
       <% end %>
     </ul>
   </div>
 
   <div class='right'>
+    <%= render :partial => 'regions/protocols' %>
   </div>
 </div>
