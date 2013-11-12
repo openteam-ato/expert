@@ -1,0 +1,19 @@
+<% object.items.shift %>
+<% if object.items.any? %>
+  <h2>Сотрудники</h2>
+  <ul class='employees'>
+    <% object.items.each do |item| %>
+      <li>
+        <% if item.link %>
+          <%= link_to item.person, item.link, :class => 'fio' %>
+        <% else %>
+          <span class="fio"><%= item.person %></span>
+        <% end %>
+        <span class='title'><%= item.title %></span>
+        <span class="phones"><%= item.phones %></span>
+        <span class="emails"><%= item.emails.map{|email| mail_to(email)}.join(', ').html_safe if item.emails %></span>
+        <span class="address"><%= item.address %></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

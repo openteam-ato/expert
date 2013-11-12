@@ -1,8 +1,11 @@
-<h1><%= object.title.gilensize.html_safe %></h1>
+<h1>
+  <%= "#{object.surname} #{object.name} #{object.patronymic}" %>
+  <span class='item_title'><%= object.title.as_html %></span>
+</h1>
 
 <div class='blue_pages'>
   <%= render :partial => 'commons/chief', :locals => { :object => object } %>
-  <div class="dossier">
-    <%= object.dossier.gilensize.html_safe %>
+  <div class='dossier'>
+    <%= object.dossier.as_html %>
   </div>
 </div>

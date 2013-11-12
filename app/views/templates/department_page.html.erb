@@ -1,0 +1,28 @@
+<div class='content'>
+  <div class='inner'>
+    <h1><%= @content_first.content.title %></h1>
+    <div class="blue_pages">
+
+      <%= render :partial => 'commons/chief', :locals => { :object => @content_first.content.items.first } if @content_first.content.items %>
+
+      <% if @links %>
+        <div class="links">
+          <h3>Ссылки</h3>
+          <%= raw @links.content.body.html_safe %>
+          <div class="right_side_bottom"></div>
+        </div>
+      <% end %>
+
+      <%= render :partial => 'commons/department_info', :locals => { :object => @content_first.content } %>
+      <%= render :partial => 'commons/department_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
+      <% if @content_first.content.subdivisions %>
+        <h2>Подразделения</h2>
+        <%= render :partial => 'commons/subdivisions', :locals => { :object => @content_first.content } %>
+      <% end %>
+      <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
+      <%= render :partial => 'regions/dependent_subdivisions', :locals => { :object => @dependent_subdivisions } if @dependent_subdivisions %>
+
+    </div>
+    <%= render 'commons/social_links' %>
+  </div>
+</div>

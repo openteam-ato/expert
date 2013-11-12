@@ -1,0 +1,42 @@
+<div class="information">
+  <% if @regulation %>
+    <div class="regulation documents">
+      <%= link_to content_tag(:span, '', :class => 'icon') + @regulation.content.gallery_pictures.first.description, @regulation.content.gallery_pictures.first.picture_url, :class => @regulation.content.gallery_pictures.first.picture_url.match(/\.(\w+)$/).try(:[], 1) %>
+    </div>
+  <% end %>
+
+  <div class="contacts">
+    <ul>
+      <li>
+        <span class="label">Адрес</span>
+        <%= object.address %>
+      </li>
+
+      <% if object.phones %>
+        <li>
+          <span class="label">Телефон</span>
+          <%= object.phones %>
+        </li>
+      <% end %>
+
+      <% if object.emails %>
+        <li>
+          <span class="label">Email</span>
+          <%= object.emails.map{|email| mail_to(email)}.join(', ').html_safe %>
+        </li>
+      <% end %>
+
+      <% if object.url %>
+        <li>
+          <span class="label">Сайт</span>
+          <%= link_to object.url, object.url %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="dossier">
+    <%= object.dossier.html_safe if object.dossier %>
+  </div>
+</div>
+

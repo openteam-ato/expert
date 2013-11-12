@@ -1,6 +1,6 @@
-<div class="chief">
+<div class='show_chief'>
   <%= content_tag :div, :class => 'title' do %>
-    <%= object.title.gilensize.html_safe %>
+    <%= object.title.as_html %>
   <% end %>
 
   <% if object.image_url %>
@@ -9,7 +9,7 @@
     <%= image_tag image_path('dummy.png'), :width => 217, :height => 290 %>
   <% end %>
 
-  <div class="fio">
+  <div class='fio'>
     <% if object.link %>
       <%= link_to object.person.sub(/\s/, "<br />").html_safe, object.link %>
     <% elsif object.person %>
@@ -17,10 +17,10 @@
     <% else %>
       <%= "#{object.surname} #{object.name} #{object.patronymic}" %>
     <% end %>
-    <span class="phones">
+    <span class='phones'>
       <%= object.phones %>
     </span>
-    <span class="emails">
+    <span class='emails'>
       <%= object.emails.map{|email| mail_to(email)}.join(', ').html_safe if object.emails %>
     </span>
   </div>
