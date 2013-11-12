@@ -47,15 +47,5 @@
         <% end %>
       </div>
     <% end %>
-
-    <% if object.images && object.images.many? %>
-      <div class='galleria_wrapper'>
-        <div id='galleria'>
-          <% object.images.each do |image| %>
-            <%= galleria_link(image) %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
 <% end %>

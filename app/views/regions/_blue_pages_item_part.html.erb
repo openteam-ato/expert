@@ -1,11 +1,13 @@
-<h1>
-  <%= "#{object.surname} #{object.name} #{object.patronymic}" %>
-  <span class='item_title'><%= object.title.as_html %></span>
-</h1>
+<div class='index'>
+  <h1>
+    <%= "#{object.surname} #{object.name} #{object.patronymic}" %>
+    <span class='item_title'><%= object.title.as_html %></span>
+  </h1>
 
-<div class='blue_pages'>
-  <%= render :partial => 'commons/chief', :locals => { :object => object } %>
-  <div class='dossier'>
-    <%= object.dossier.as_html %>
+  <div class='blue_pages'>
+    <%= render :partial => 'commons/chief', :locals => { :object => object } %>
+    <div class='dossier'>
+      <%= object.dossier.as_html %>
+    </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
-<h1><%= @page_title %></h1>
+<div class='index'>
+  <h1><%= @page_title %></h1>
 
-<div class='text'>
-  <%= object.body.gsub('<span class="nobr">data-ratio</span>', 'data-ratio').as_html %>
+  <div class='text'>
+    <%= object.body.gsub('<span class="nobr">data-ratio</span>', 'data-ratio').as_html %>
+  </div>
 </div>
