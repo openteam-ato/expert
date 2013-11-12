@@ -1,5 +1,7 @@
 <% unless object.blank? %>
 
+  <h1><%= object.title %></h1>
+
   <div class='right_side noindex'>
     <%  if object.images.any? %>
       <div class='entry_image'>
@@ -11,7 +13,7 @@
     <% end %>
 
     <% if object.more_like_this %>
-      <div class='more_like_this noindex'>
+      <div class='more_like_this'>
         <h2>Другие новости</h2>
         <ul>
           <% object.more_like_this.each do |item| %>
@@ -32,11 +34,8 @@
       <%= l object.since.to_date, :format => :long %>
     </div>
 
-    <div class='annotation'>
-      <%= object.annotation.html_safe %>
-    </div>
-
-    <%= object.body.html_safe %>
+    <%= object.annotation.as_html %>
+    <%= object.body.as_html %>
 
     <% if object.source.present? %>
       <div class='source'>

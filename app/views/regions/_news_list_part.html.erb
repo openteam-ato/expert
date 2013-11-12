@@ -15,7 +15,7 @@
         <li>
           <div class='date'><%= l Date.parse(item.since), :format => :long %></div>
           <div class='title'><%= link_to item.title, item.link, :title => item.title %></div>
-          <%= content_tag :div, item.annotation.html_safe, :class => :annotation if item.annotation %>
+          <%= content_tag :div, item.annotation.as_html, :class => :annotation if item.annotation.present? %>
         </li>
       <% end %>
     </ul>
