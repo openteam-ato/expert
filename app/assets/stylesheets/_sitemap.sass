@@ -1,0 +1,19 @@
+.content .sitemap
+  margin: 10px 0 20px 0
+  ul
+    margin: 10px 0
+    li
+      +clearfix
+      margin: 10px 0
+
+      &:before
+        display: block
+        content: '\2013'
+        float: left
+        margin: 0 10px 0 0
+
+      &:last-child
+        margin-bottom: 0
+
+      ul
+        margin: 0 0 0 10px
