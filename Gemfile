@@ -15,7 +15,7 @@ group :default do
   gem 'formtastic'
   gem 'gilenson'
   gem 'hashie'
-  gem 'jquery-rails', '2.1.4'
+  gem 'jquery-rails', '= 2.1.4'
   gem 'kaminari'
   gem 'openteam-commons'
   gem 'rails', '~> 3.2.15'
@@ -26,7 +26,7 @@ end
 
 group :development do
   gem 'brakeman', :require => false
-  gem 'capistrano-unicorn', '0.1.7', :require => false
+  gem 'capistrano-unicorn', '= 0.1.7', :require => false
   gem 'openteam-capistrano'
   gem 'thin'
 end

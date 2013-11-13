@@ -133,7 +133,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    openteam-capistrano (0.0.13)
+    openteam-capistrano (0.0.14)
       capistrano-db-tasks
       capistrano-ext
       capistrano-unicorn
