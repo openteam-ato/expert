@@ -4,9 +4,11 @@
   <% end %>
 
   <% if object.image_url %>
-    <%= thumbnail_tag object.image_url, :width => 217, :height => 290, :crop => true %>
+    <%= link_to object.image_url, :class => :colorbox do %>
+      <%= image_tag resized_image_url(object.image_url, 217, 290), :size => '217x290', :alt => object.title.as_html %>
+    <% end %>
   <% else %>
-    <%= image_tag image_path('dummy.png'), :width => 217, :height => 290 %>
+    <%= image_tag image_path('dummy.png'), :size => '217x290' %>
   <% end %>
 
   <div class='fio'>

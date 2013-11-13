@@ -18,7 +18,7 @@ group :default do
   gem 'jquery-rails', '2.1.4'
   gem 'kaminari'
   gem 'openteam-commons'
-  gem 'rails', '~>3.2.15'
+  gem 'rails', '~> 3.2.15'
   gem 'russian'
   gem 'stop_ie'
   gem 'uuid'

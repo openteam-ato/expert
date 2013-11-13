@@ -4,8 +4,8 @@
     previous: 'назад'
     next: 'вперёд'
     close: 'закрыть'
-    maxWidth: '90%'
-    maxHeight: '90%'
+    maxWidth: '98%'
+    maxHeight: '98%'
     imgError: 'Ошибка загрузки изображения'
 
   true

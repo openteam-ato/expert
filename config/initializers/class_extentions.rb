@@ -8,3 +8,11 @@ class String
   end
 
 end
+
+class NilClass
+
+  def as_html
+    nil
+  end
+
+end
