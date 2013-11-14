@@ -2,32 +2,34 @@
 
   <h1><%= object.title %></h1>
 
-  <div class='right_side noindex'>
-    <%  if object.images.any? %>
-      <div class='entry_image'>
-        <%= image_tag object.images.first.thumbnail.url, :alt => object.images.first.description, :width => object.images.first.thumbnail.width, :height => object.images.first.thumbnail.height %>
-        <div class='description'>
-          <%= object.images.first.description %>
+  <% if object.images.any? || object.more_like_this.present? %>
+    <div class='right_side noindex'>
+      <% if object.images.any? %>
+        <div class='entry_image'>
+          <%= image_tag object.images.first.thumbnail.url, :alt => object.images.first.description, :width => object.images.first.thumbnail.width, :height => object.images.first.thumbnail.height %>
+          <div class='description'>
+            <%= object.images.first.description %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <% if object.more_like_this.present? %>
-      <div class='more_like_this'>
-        <h2>Другие новости</h2>
-        <ul>
-          <% object.more_like_this.each do |item| %>
-            <li>
-              <div class='date'>
-                <%= l item.since.to_date, :format => :long %>
-              </div>
-              <%= link_to item.title, item.link %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+      <% if object.more_like_this.present? %>
+        <div class='more_like_this'>
+          <h2>Другие новости</h2>
+          <ul>
+            <% object.more_like_this.each do |item| %>
+              <li>
+                <div class='date'>
+                  <%= l item.since.to_date, :format => :long %>
+                </div>
+                <%= link_to item.title, item.link %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class='entry_show index'>
     <div class='date'>
