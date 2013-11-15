@@ -1,3 +1,3 @@
-set :default_stage, :expert
-require 'capistrano-unicorn'
+set :default_stage, :production
+
 require 'openteam/capistrano/recipes'
