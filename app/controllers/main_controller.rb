@@ -14,6 +14,16 @@ class MainController < ApplicationController
     render "templates/#{page.template}"
   end
 
+  def show
+    page_regions.each do |region|
+      eval "@#{region} = page.regions.#{region}"
+    end
+
+    @page_title = page.title
+  end
+  alias_method :new, :show
+  alias_method :create, :show
+
   private
 
   def cms_address
@@ -22,8 +32,7 @@ class MainController < ApplicationController
 
   def remote_url
     request_path, parts_params = request.fullpath.split('?')
-    # TODO: выяснить нужно ли энкодить
-    #parts_params = URI.encode(parts_params || '')
+    parts_params = URI.encode(parts_params || '')
 
     "#{cms_address}#{request_path.split('/').compact.join('/')}.json?#{parts_params}"
   end

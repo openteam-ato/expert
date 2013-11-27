@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    На сайте Экспертных советов при заместителях Губернатора Томской области, с помощью формы обратной связи пользователь
+    <%= @request.name %> оставил вопрос:
+
+    <%= @request.message %>
+
+    Для связи с <%= @request.name %> используйте электронную почту: <%= @request.email %>
+    <%= @request.phone? ? "или телефон: #{@request.phone}" : nil %>
+  </body>
+</html>

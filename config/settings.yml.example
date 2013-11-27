@@ -1,13 +1,28 @@
 app:
-  secret:       SECRET
-
-cms:
-  url:          http://cms.url
-  site_slug:    expert
+  secret:               SECRET
 
 errors:
-  key:          KEY
-  url:          http://errors.url
+  key:                  KEY
+  url:                  http://errors.url
+
+cms:
+  url:                  http://cms.url
+  site_slug:            slug
 
 storage:
-  url:          http://storage.url
+  url:                  http://storage.url
+
+mail:
+  address:              smtp.example.com
+  port:                 22
+  domain:               example.com
+  authentication:       plain                 # optional
+  enable_starttls_auto: true                  # optional
+  user_name:            user@example.com      # optional
+  password:             SECRET                # optional
+  to:                   client@example.com
+  from:                 server@example.com
+
+recaptcha:
+  public:               KEY
+  private:              KEY

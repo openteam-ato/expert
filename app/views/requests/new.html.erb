@@ -1,0 +1,21 @@
+<h1>Задайть вопрос</h1>
+<div class='request'>
+  <div class='flash_message'>
+    <%= flash[:notice] %>
+    <%= flash[:recaptcha_error].nil? ? '' : t('recaptcha.errors.verification_failed') %>
+  </div>
+
+  <%= simple_form_for @request, :url => create_request_path, :html => {:novalidate => true} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :message %>
+    <div class='recaptcha'>
+      <%= recaptcha_tags :display => {:theme => 'white'}, :ajax => true %>
+    </div>
+    <div class='submit'>
+      <%= f.submit "Отправить" %>
+    </div>
+  <% end %>
+
+</div>

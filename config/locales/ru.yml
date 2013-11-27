@@ -1,11 +1,22 @@
 ru:
 
-  experts_council: Экспертные советы
-  experts_council_full_name: Экспертные советы при заместителях Губернатора Томской области
-  by_deputy_governor: при заместителях Губернатора Томской области
+  experts_council: 'Экспертные советы'
+  experts_council_full_name: 'Экспертные советы при заместителях Губернатора Томской области'
+  by_deputy_governor: 'при заместителях Губернатора Томской области'
 
   views:
     pagination:
       next: '&rarr;'
       previous: '&larr;'
-      truncate: ...
+      truncate: '...'
+
+  activerecord:
+    models:
+      request: 'Вопрос'
+
+    attributes:
+      request:
+        name: 'ФИО'
+        email: 'Электронная почта'
+        phone: 'Контактный телефон'
+        message: 'Ваш вопрос'
