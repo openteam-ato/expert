@@ -5,6 +5,6 @@ class RequestMailer < ActionMailer::Base
 
   def send_email(request)
     @request = request
-    mail(:to => Settings['mail']['to'], :subject => 'Новое сообщение с сайта')
+    mail(:to => Settings['mail']['to'], :subject => 'Новое сообщение с сайта Экспертных советов при заместителях Губернатора Томской области')
   end
 end
