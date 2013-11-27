@@ -4,8 +4,8 @@
   <ul>
     <% object.items.each do |item| %>
       <li>
-        <h4><%= link_to item.title.as_html, item.url %></h4>
-        <p><%= item.excerpt.as_html %></p>
+        <h4><%= link_to item.title.to_s.as_html, item.url %></h4>
+        <p><%= item.excerpt.to_s.as_html %></p>
       </li>
     <% end %>
   </ul>

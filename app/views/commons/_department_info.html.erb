@@ -33,6 +33,6 @@
       <% end %>
     </ul>
   </div>
-  <%= content_tag :div, object.dossier.as_html, :class => :dossier if object.dossier %>
+  <%= content_tag :div, object.dossier.to_s.as_html, :class => :dossier if object.dossier.present? %>
 </div>
 

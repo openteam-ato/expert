@@ -36,8 +36,8 @@
       <%= l object.since.to_date, :format => :long %>
     </div>
 
-    <%= object.annotation.as_html %>
-    <%= object.body.as_html %>
+    <%= object.annotation.to_s.as_html %>
+    <%= object.body.to_s.as_html %>
 
     <% if object.source.present? %>
       <div class='source'>

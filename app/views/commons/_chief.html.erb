@@ -1,6 +1,6 @@
 <div class='show_chief'>
   <%= content_tag :div, :class => 'title' do %>
-    <%= object.title.as_html %>
+    <%= object.title.to_s.as_html %>
   <% end %>
 
   <% if object.image_url %>
