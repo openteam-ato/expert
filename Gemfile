@@ -16,10 +16,9 @@ group :default do
   gem 'formtastic'
   gem 'gilenson'
   gem 'hashie'
-  gem 'jquery-rails', '= 2.1.4'
+  gem 'jquery-rails', '2.1.4'
   gem 'kaminari'
   gem 'openteam-commons'
-  gem 'pg'
   gem 'rails', '~> 3.2.15'
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'russian'
@@ -38,6 +37,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'pg'
 end
 
 group :test do
