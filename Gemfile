@@ -13,7 +13,6 @@ group :default do
   gem 'delayed_job_active_record'
   gem 'el_vfs_client'
   gem 'esp-commons'
-  gem 'formtastic'
   gem 'gilenson'
   gem 'hashie'
   gem 'jquery-rails', '2.1.4'

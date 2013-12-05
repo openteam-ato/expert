@@ -107,8 +107,6 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.2)
     fastercsv (1.5.5)
-    formtastic (2.2.1)
-      actionpack (>= 3.0)
     fssm (0.2.10)
     gilenson (1.2.2)
     haml (4.0.4)
@@ -250,7 +248,6 @@ DEPENDENCIES
   delayed_job_active_record
   el_vfs_client
   esp-commons
-  formtastic
   gilenson
   hashie
   jquery-rails (= 2.1.4)
