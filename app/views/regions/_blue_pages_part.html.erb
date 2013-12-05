@@ -20,7 +20,7 @@
               <% if item.link.present? %>
                 <%= link_to item.person.to_s.as_html, item.link %>
               <% else %>
-                <%= item.person.to_s..as_html %>
+                <%= item.person.to_s.as_html %>
               <% end %>
             </div>
             <div class='title'><%= item.title.to_s.as_html %></div>
