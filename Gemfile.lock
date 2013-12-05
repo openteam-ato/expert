@@ -107,6 +107,7 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.2)
     fastercsv (1.5.5)
+    fattr (2.2.1)
     fssm (0.2.10)
     gilenson (1.2.2)
     haml (4.0.4)
@@ -149,8 +150,13 @@ GEM
       rails
       unicorn
       whenever
+    options (2.3.0)
+      fattr
     pg (0.17.0)
     polyglot (0.3.3)
+    progress_bar (0.4.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -255,6 +261,7 @@ DEPENDENCIES
   openteam-capistrano
   openteam-commons
   pg
+  progress_bar
   rails (~> 3.2.15)
   recaptcha
   russian

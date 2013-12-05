@@ -18,6 +18,7 @@ group :default do
   gem 'jquery-rails', '2.1.4'
   gem 'kaminari'
   gem 'openteam-commons'
+  gem 'progress_bar', :require => false
   gem 'rails', '~> 3.2.15'
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'russian'
