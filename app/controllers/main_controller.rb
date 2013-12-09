@@ -9,9 +9,22 @@ class MainController < ApplicationController
       eval "@#{region} = page.regions.#{region}"
     end
 
-    @events = Calendar.events
 
     @page_title = page.title
+
+    @events = []
+
+    if @main_navigation.content.ru.children['ekspertnye-sovety'].selected?
+      @main_navigation.content.ru.children['ekspertnye-sovety'].children.each do |s|
+        @events.push Calendar.calendar_events(s.first).first if s.second.selected?
+      end
+    end
+
+    if @events.blank?
+      @events = Calendar.events
+    end
+
+    @events.compact!
 
     render "templates/#{page.template}"
   end

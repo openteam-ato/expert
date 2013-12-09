@@ -1,30 +1,37 @@
 <div class='protocols'>
   <h4>Повестки, протоколы</h4>
   <ul>
-    <% @events.first(3).each do |e| %>
-      <li>
-        <div class='date'>
-          <p><%= I18n.l(e.dtstart, :format => '%d %B %Y %H:%M') %>&ndash;<%= I18n.l(e.dtend, :format => '%H:%M') %>
-
-          </p>          <p><%= e.location %></p>
-        </div>
-        <div class='title'>
-          <%= e.summary %>
-          <%= simple_format e.description %>
-        </div>
-        <ul class='attachments'>
-          <% if e.attach.present? %>
-            <% e.attach.each do |a| %>
-              <li>
-                <%= link_to URI.decode(a.path), :class => "#{Calendar.mime_type_by_path(a.path)}" do %>
-                  <span class='icon'></span>
-                  <%= Calendar.filename_by_path(a.path) %>
-                <% end %>
-              </li>
+    <% unless @events.blank? %>
+      <% @events.first(3).each do |e| %>
+        <li>
+          <div class='date'>
+            <p>
+              <%= I18n.l(e.dtstart, :format => '%d %B %Y %H:%M') %>&ndash;<%= I18n.l(e.dtend, :format => '%H:%M') %>
+            </p>
+            <p>
+              <%= e.location %>
+            </p>
+          </div>
+          <div class='title'>
+            <%= e.summary %>
+            <%= simple_format e.description %>
+          </div>
+          <ul class='attachments'>
+            <% if e.attach.present? %>
+              <% e.attach.each do |a| %>
+                <li>
+                  <%= link_to URI.decode(a.path), :class => "#{Calendar.mime_type_by_path(a.path)}" do %>
+                    <span class='icon'></span>
+                    <%= Calendar.filename_by_path(a.path) %>
+                  <% end %>
+                </li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </li>
+          </ul>
+        </li>
+      <% end %>
+    <% else %>
+      <li>Повесток и протоколов не найдено</li>
     <% end %>
   </ul>
 </div>

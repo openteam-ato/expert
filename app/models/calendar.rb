@@ -39,7 +39,6 @@ class Calendar < ActiveRecord::Base
 
   #return calendars from ics files
   def self.calendars
-    input_dir = Rails.root.join('tmp', 'calendars')
     councils = (YAML.load_file(Rails.root.join('config', 'calendars.yml'))['calendars'] || {})
     calendars = []
     councils.map(&:first).each do |slug|
@@ -49,9 +48,10 @@ class Calendar < ActiveRecord::Base
     calendars
   end
 
-  #return calendar by url
-  def self.calendar()
-
+  def self.calendar_events(name)
+    icsfile = Rails.root.join('tmp/calendars', "#{name}.ics")
+    calendar = Icalendar.parse(File.open(icsfile))
+    calendar.first.events.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
   end
 
   #return events from all calendars in ics
