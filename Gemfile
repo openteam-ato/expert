@@ -26,6 +26,8 @@ group :default do
   gem 'stop_ie'
   gem 'uuid'
   gem 'validates_email_format_of'
+  gem 'icalendar'
+  gem 'google-api-client'
 end
 
 group :development do

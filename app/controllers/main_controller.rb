@@ -9,6 +9,8 @@ class MainController < ApplicationController
       eval "@#{region} = page.regions.#{region}"
     end
 
+    @events = Calendar.events
+
     @page_title = page.title
 
     render "templates/#{page.template}"
