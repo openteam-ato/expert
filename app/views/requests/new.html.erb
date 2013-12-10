@@ -11,11 +11,11 @@
     <%= f.input :phone %>
     <%= f.input :message %>
 
-    <%= f.fields_for :attachments do |a| %>
-      <%= a.file_field :file %>
-      <%= a.link_to_remove "Удалить" %>
-    <% end %>
     <div class="add_file">
+      <%= f.fields_for :attachments do |a| %>
+        <%= a.file_field :file %>
+        <%= a.link_to_remove "Удалить" %>
+      <% end %>
       <%= f.link_to_add "Добавить файл", :attachments %>
     </div>
     <div class='recaptcha'>
