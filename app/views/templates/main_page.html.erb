@@ -7,5 +7,5 @@
   <%= render_partial_for_region(@news, 'main_page') %>
 </div>
 <div class='right'>
-  <%= render :partial => 'regions/protocols' %>
+  <%= render :partial => 'regions/protocols', :locals => { :main_page => true } %>
 </div>
