@@ -5,11 +5,19 @@
     <%= flash[:recaptcha_error].nil? ? '' : t('recaptcha.errors.verification_failed') %>
   </div>
 
-  <%= simple_form_for @request, :url => create_request_path, :html => {:novalidate => true} do |f| %>
+  <%= simple_nested_form_for @request, :url => create_request_path, :html => { :multipart => true, :novalidate => true } do |f| %>
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :phone %>
     <%= f.input :message %>
+
+    <%= f.fields_for :attachments do |a| %>
+      <%= a.file_field :file %>
+      <%= a.link_to_remove "Удалить" %>
+    <% end %>
+    <div class="add_file">
+      <%= f.link_to_add "Добавить файл", :attachments %>
+    </div>
     <div class='recaptcha'>
       <%= recaptcha_tags :display => {:theme => 'white'}, :ajax => true %>
     </div>

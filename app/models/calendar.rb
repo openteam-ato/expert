@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Calendar < ActiveRecord::Base
+class Calendar
 
   def self.data_from_google(code)
     http = Curl.get("https://docs.google.com/file/d/#{code}/gviewfetch")

@@ -11,8 +11,17 @@
 
     <%= simple_format @request.message %>
 
+    <% if @request.attachments.any? %>
+      <p>Вложения:</p>
+      <ul>
+        <% @request.attachments.each do |attachment| %>
+          <li><%= link_to attachment.file_file_name, attachment.file_url %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <p>
-      Для связи с <%= @request.name %> используйте электронную почту: <%= @request.email %>
+      Для связи с <%= @request.name %> используйте электронную почту: <%= mail_to @request.email %>
       <%= @request.phone? ? "или телефон: #{@request.phone}" : nil %>
     </p>
   </body>
