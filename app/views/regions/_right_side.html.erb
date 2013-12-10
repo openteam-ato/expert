@@ -1,6 +1,5 @@
 <% if @right_side_navigation %>
   <div class="right_side_navigation noindex">
-    <h4><%= @right_side_navigation.content.values.first['title'] %></h4>
     <%= render_navigation(@right_side_navigation.content.values.first['children']) %>
     <div class="right_side_bottom"></div>
   </div>

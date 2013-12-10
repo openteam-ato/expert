@@ -5,9 +5,12 @@
   </h1>
 
   <div class='blue_pages'>
-    <%= render :partial => 'commons/chief', :locals => { :object => object } %>
-    <div class='dossier'>
+    <div class='dossie'>
       <%= object.dossier.to_s.as_html %>
+    </div>
+    <div class="right">
+      <%= render :partial => 'regions/right_side' %>
+      <%= render :partial => 'commons/chief', :locals => { :object => object } %>
     </div>
   </div>
 </div>

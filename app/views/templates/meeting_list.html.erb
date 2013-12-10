@@ -1,5 +1,11 @@
 <h1>Повестки и протоколы заседаний экспертных советов</h1>
-<div class='index'>
+<% if @right_side_navigation %>
+  <div class='left index'>
+    <%= render :partial => 'regions/meeting_list_protocols' %>
+  </div>
+  <div class='right'>
+    <%= render :partial => 'regions/right_side' %>
+  </div>
+<% else %>
   <%= render :partial => 'regions/meeting_list_protocols' %>
-</div>
-
+<% end %>
