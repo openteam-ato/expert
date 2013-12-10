@@ -20,3 +20,7 @@ ru:
         email: 'Электронная почта'
         phone: 'Контактный телефон'
         message: 'Ваш вопрос'
+
+  recaptcha:
+    errors:
+      verification_failed: Вы не правильно ввели слова с картинки
