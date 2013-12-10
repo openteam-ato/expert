@@ -43,14 +43,21 @@ class Calendar < ActiveRecord::Base
     calendars = []
     councils.map(&:first).each do |slug|
       icsfile = Rails.root.join('tmp/calendars', "#{slug}.ics")
-      calendars.push Icalendar.parse(File.open(icsfile))
+      begin
+        calendars.push Icalendar.parse(File.open(icsfile))
+      rescue => e
+      end
     end
-    calendars
+    calendars.compact
   end
 
   def self.calendar_events(name)
     icsfile = Rails.root.join('tmp/calendars', "#{name}.ics")
-    calendar = Icalendar.parse(File.open(icsfile))
+    begin
+      calendar = Icalendar.parse(File.open(icsfile))
+    rescue => e
+    end
+    return [] if calendar.blank? || calendar.empty?
     calendar.first.events.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
   end
 
@@ -58,7 +65,7 @@ class Calendar < ActiveRecord::Base
   def self.events
     events = []
     calendars.each do |c|
-      events << c.first.events
+      events << c.first.try(:events)
     end
     events.flatten.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
   end
