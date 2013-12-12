@@ -9,26 +9,28 @@ class MainController < ApplicationController
       eval "@#{region} = page.regions.#{region}"
     end
 
-
     @page_title = page.title
-
     @events = []
 
     if @main_navigation.content.ru.children['ekspertnye-sovety'].selected?
+      flag = false
       @main_navigation.content.ru.children['ekspertnye-sovety'].children.each do |s|
         if s.second.selected?
           Calendar.calendar_with_links(s.first).each do |e|
             @events.push e
           end
+          flag = true
         end
       end
+      if @events.blank? && !flag
+        @events = Calendar.events
+      else
+        @events = Calendar.new_events(@events)
+      end
+    else
+      @events = Calendar.new_events(Calendar.events)
     end
 
-    if @events.blank?
-      @events = Calendar.events
-    end
-
-    @events.compact!
     @events = Kaminari.paginate_array(@events).page(params[:page]).per(10)
 
     render "templates/#{page.template}"

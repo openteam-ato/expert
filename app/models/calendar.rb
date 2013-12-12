@@ -131,4 +131,15 @@ class Calendar
     ics_calendars
   end
 
+  def self.new_events(events)
+    new_event = []
+    events.each do |e|
+      if e.dtstart > Time.now
+        new_event.push e
+      end
+    end
+
+    new_event.sort{ |a, b| b.dtstart <=> a.dtstart }
+  end
+
 end
