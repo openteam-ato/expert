@@ -13,7 +13,7 @@
             </p>
           </div>
           <div class='title'>
-            <%= e.summary %>
+              <%= link_to e.summary, e.resources.first %>
           </div>
           <div class="description">
             <%= simple_format e.description %>

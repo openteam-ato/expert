@@ -51,23 +51,84 @@ class Calendar
     calendars.compact
   end
 
-  def self.calendar_events(name)
+  def self.calendar(name)
     icsfile = Rails.root.join('tmp/calendars', "#{name}.ics")
     begin
       calendar = Icalendar.parse(File.open(icsfile))
     rescue => e
     end
     return [] if calendar.blank? || calendar.empty?
-    calendar.first.events.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
+    calendar.first
+  end
+
+  def self.calendar_with_links(name)
+    ics_calendar = calendar(name)
+    xmlfile = Rails.root.join('tmp/calendars', "#{name}.xml")
+    f = File.open(xmlfile)
+    values = []
+    flag = true
+
+    Nokogiri::XML(f).css("entry link").each do |a|
+      if flag
+        values.push a.attribute('href').value
+        flag = false
+      else
+        flag = true
+      end
+    end
+
+    ics_calendar = [ics_calendar.try(:events), values]
+    f.close
+
+    return [] if ics_calendar.blank? || ics_calendar.empty?
+
+    events = []
+    ics_calendar.first.each_with_index do |e, i|
+      e.add_resource ics_calendar.second[i] if ics_calendar.second[i].present?
+      events << e
+    end
+
+    events.flatten.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
   end
 
   #return events from all calendars in ics
   def self.events
     events = []
-    calendars.each do |c|
-      events << c.first.try(:events)
+    calendars_with_event_links.each do |c|
+      c.first.try(:events).each_with_index do |e, i|
+        e.add_resource c.second[i] if c.second[i].present?
+        events << e
+      end
     end
     events.flatten.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
+  end
+
+  def self.calendars_with_event_links
+    councils = (YAML.load_file(Rails.root.join('config', 'calendars.yml'))['calendars'] || {})
+    ics_calendars = calendars
+    calendars = []
+
+    councils.map(&:first).each_with_index do |slug, index|
+      xmlfile = Rails.root.join('tmp/calendars', "#{slug}.xml")
+      begin
+        f = File.open(xmlfile)
+        values = []
+        flag = true
+        Nokogiri::XML(f).css("entry link").each do |a|
+          if flag
+           values.push a.attribute('href').value
+           flag = false
+          else
+            flag = true
+          end
+        end
+        ics_calendars[index].push values
+        f.close
+      rescue => e
+      end
+    end
+
+    ics_calendars
   end
 
 end

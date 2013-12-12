@@ -16,7 +16,11 @@ class MainController < ApplicationController
 
     if @main_navigation.content.ru.children['ekspertnye-sovety'].selected?
       @main_navigation.content.ru.children['ekspertnye-sovety'].children.each do |s|
-        @events.push Calendar.calendar_events(s.first).first if s.second.selected?
+        if s.second.selected?
+          Calendar.calendar_with_links(s.first).each do |e|
+            @events.push e
+          end
+        end
       end
     end
 
@@ -26,7 +30,6 @@ class MainController < ApplicationController
 
     @events.compact!
     @events = Kaminari.paginate_array(@events).page(params[:page]).per(10)
-
 
     render "templates/#{page.template}"
   end
