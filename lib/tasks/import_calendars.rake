@@ -17,6 +17,11 @@ task :import_calendars => :environment do
         http = Curl.get(calendar_url)
         saved_file.write(http.body_str)
       end
+      calendar_url = council.second['url'].gsub(/\/ical\//, '/feeds/').gsub(/\.ics$/, '')
+      File.open("#{target_dir}/#{council_slug}.xml", 'wb') do |saved_file|
+        http = Curl.get(calendar_url)
+        saved_file.write(http.body_str)
+      end
       bar.increment!
     end
   rescue => e

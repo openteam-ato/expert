@@ -18,6 +18,8 @@ group :default do
   gem 'icalendar'
   gem 'jquery-rails', '2.1.4'
   gem 'kaminari'
+  gem 'nested_form'
+  gem 'nokogiri'
   gem 'openteam-commons'
   gem 'paperclip-elvfs'
   gem 'progress_bar', :require => false
@@ -28,7 +30,6 @@ group :default do
   gem 'stop_ie'
   gem 'uuid'
   gem 'validates_email_format_of'
-  gem 'nested_form'
 end
 
 group :development do
