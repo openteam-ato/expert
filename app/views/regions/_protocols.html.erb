@@ -13,7 +13,7 @@
             </p>
           </div>
           <div class='title'>
-              <%= link_to e.summary, e.resources.first %>
+            <%= link_to e.summary, e.resources.first, :target => '_blank' %>
           </div>
           <div class="description">
             <%= simple_format e.description %>
@@ -36,7 +36,4 @@
       <li>Повесток и протоколов не найдено</li>
     <% end %>
   </ul>
-  <% if main_page %>
-    <p class ='all_protocols'><a href='/ru/ekspertnye-sovety/'>Все повестки и протоколы</a></p>
-  <% end %>
 </div>
