@@ -1,0 +1,15 @@
+<% if object.gallery_pictures.any? %>
+  <div class='experts_council_gallery_part'>
+    <h2>Протоколы заседаний экспертного совета</h2>
+    <ul>
+      <% object.gallery_pictures.each do |item| %>
+        <li>
+        <%= link_to item.picture_url, :target => '_blank', :class => extension(item.picture_url) do %>
+          <span class='icon'></span>
+          <%= item.description %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

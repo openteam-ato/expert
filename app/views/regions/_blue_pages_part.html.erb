@@ -1,52 +1,39 @@
-<h1><%= object.title %></h1>
-
 <div class='blue_pages'>
-  <div class='left index'>
-    <p><strong>Адрес:</strong> <%= object.address %></p>
-    <div id="experts_spoiler">Состав экспертного совета</div>
-    <ul id="e_spoiler">
-      <% object.items.each_with_index do |item, index| %>
-        <li class='<%= index.zero? ? 'chief' : 'member' %>'>
-          <%= render_partial_for_region(@regulation, 'regulation') if index.zero? && @regulation.present? %>
-          <% if item.image_url.present? %>
-            <div class='image'>
-              <%= link_to item.image_url, :class => :colorbox, :rel => :colorbox do %>
-                <%= image_tag resized_image_url(item.image_url, 130, 172), :size => '130x172', :alt => item.person if index.zero? %>
-                <%= image_tag resized_image_url(item.image_url, 80, 107), :size => '80x107', :alt => item.person unless index.zero? %>
-              <% end %>
-            </div>
-          <% end %>
-          <div class='clearfix'>
-            <div class='person'>
-              <% if item.link.present? %>
-                <%= link_to item.person.to_s.as_html, item.link %>
-              <% else %>
-                <%= item.person.to_s.as_html %>
-              <% end %>
-            </div>
-            <div class='title'><%= item.title.to_s.as_html %></div>
-            <% if item.address.present? %>
-              <div class='address'><strong>Адрес:</strong> <%= item.address %></div>
-            <% end %>
-            <% if item.phones.present? %>
-              <div class='phones'>
-                <%= item.phones.split(';').map { |phone| "#{content_tag :strong, phone.split(':').first + ':'} #{phone.split(':').second}" }.join(', ').html_safe %>
-              </div>
-            <% end %>
-            <% if item.emails.present? %>
-              <div class='emals'><strong>E-mail:</strong> <%= item.emails.map { |email| mail_to(email, email) }.join(', ').html_safe %></div>
+  <h2 class='experts_toggler'>Состав экспертного совета</h2>
+  <ul class='experts_spoiler'>
+    <% object.items.each_with_index do |item, index| %>
+      <li class='<%= index.zero? ? 'chief' : 'member' %>'>
+        <%= render_partial_for_region(@regulation, 'regulation') if index.zero? && @regulation.present? %>
+        <% if item.image_url.present? %>
+          <div class='image'>
+            <%= link_to item.image_url, :class => :colorbox, :rel => :colorbox do %>
+              <%= image_tag resized_image_url(item.image_url, 130, 172), :size => '130x172', :alt => item.person if index.zero? %>
+              <%= image_tag resized_image_url(item.image_url, 80, 107), :size => '80x107', :alt => item.person unless index.zero? %>
             <% end %>
           </div>
-        </li>
-      <% end %>
-    </ul>
-    <div>
-      Протоколы прошедших заседаний
-    </div>
-  </div>
-
-  <div class='right'>
-    <%= render :partial => 'regions/right_side' %>
-    <%= render :partial => 'regions/protocols', :locals => { :main_page => false } %>
-  </div>
+        <% end %>
+        <div class='clearfix'>
+          <div class='person'>
+            <% if item.link.present? %>
+              <%= link_to item.person.to_s.as_html, item.link %>
+            <% else %>
+              <%= item.person.to_s.as_html %>
+            <% end %>
+          </div>
+          <div class='title'><%= item.title.to_s.as_html %></div>
+          <% if item.address.present? %>
+            <div class='address'><strong>Адрес:</strong> <%= item.address %></div>
+          <% end %>
+          <% if item.phones.present? %>
+            <div class='phones'>
+              <%= item.phones.split(';').map { |phone| "#{content_tag :strong, phone.split(':').first + ':'} #{phone.split(':').second}" }.join(', ').html_safe %>
+            </div>
+          <% end %>
+          <% if item.emails.present? %>
+            <div class='emals'><strong>E-mail:</strong> <%= item.emails.map { |email| mail_to(email, email) }.join(', ').html_safe %></div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
