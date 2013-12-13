@@ -12,6 +12,7 @@ class MainController < ApplicationController
     @page_title = page.title
     @events = []
 
+
     if @main_navigation.content.ru.children['ekspertnye-sovety'].selected?
       flag = false
       @main_navigation.content.ru.children['ekspertnye-sovety'].children.each do |s|
@@ -28,7 +29,9 @@ class MainController < ApplicationController
         @events = Calendar.new_events(@events)
       end
     else
-      @events = Calendar.new_events(Calendar.events)
+      if params["path"].blank?
+        @events = Calendar.new_events(Calendar.events)
+      end
     end
 
     @events = Kaminari.paginate_array(@events).page(params[:page]).per(10)
