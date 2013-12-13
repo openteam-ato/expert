@@ -175,15 +175,13 @@
       display: block
       border: 1px solid #ccc
 
-    ul li
-      +clearfix
-      margin-bottom: 5px
+    ul
+      list-style-type: disc
 
-      &:before
-        display: block
-        content: '\2013'
-        float: left
-        margin: 0 10px 0 0
+    ol
+      list-style-type: decimal
 
-      &:last-child
-        margin-bottom: 0
+    ul, ol
+      li
+        margin-bottom: 5px
+        margin-left: 20px
