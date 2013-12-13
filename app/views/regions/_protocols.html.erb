@@ -1,5 +1,5 @@
 <div class='protocols'>
-  <h4>Повестки, протоколы</h4>
+  <h4>Предстоящие заседания</h4>
   <ul>
     <% unless @events.blank? %>
       <% @events.first(3).each do |e| %>
@@ -18,18 +18,6 @@
           <div class="description">
             <%= simple_format e.description %>
           </div>
-          <ul class='attachments'>
-            <% if e.attach.present? %>
-              <% e.attach.each do |a| %>
-                <li>
-                  <%= link_to URI.decode(a.path), :class => "#{Calendar.mime_type_by_path(a.path)}" do %>
-                    <span class='icon'></span>
-                    <%= Calendar.filename_by_path(a.path) %>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
         </li>
       <% end %>
     <% else %>
