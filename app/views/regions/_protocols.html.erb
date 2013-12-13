@@ -25,6 +25,7 @@
     <% end %>
   </ul>
   <% if params["path"].present? %>
-    <p class ='calendar_link'><a href='<%= Calendar.calendar_url(params["path"].split('/')[2]) %>'>Календарь</a></p>
+    <p class ='calendar_link'><%= link_to 'Календарь заседаний', Calendar.calendar_url(params["path"].split('/')[2]), :target => "_blank" %></p>
+
   <% end %>
 </div>
