@@ -3,7 +3,8 @@
 <div class='blue_pages'>
   <div class='left index'>
     <p><strong>Адрес:</strong> <%= object.address %></p>
-    <ul>
+    <div id="experts_spoiler">Состав экспертного совета</div>
+    <ul id="e_spoiler">
       <% object.items.each_with_index do |item, index| %>
         <li class='<%= index.zero? ? 'chief' : 'member' %>'>
           <%= render_partial_for_region(@regulation, 'regulation') if index.zero? && @regulation.present? %>
@@ -39,6 +40,9 @@
         </li>
       <% end %>
     </ul>
+    <div>
+      Протоколы прошедших заседаний
+    </div>
   </div>
 
   <div class='right'>

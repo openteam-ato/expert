@@ -15,4 +15,5 @@
  * = require archive_collapser
  * = require colorbox
  * = require main
+ * = require experts_spoiler
  */
