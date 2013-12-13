@@ -1,14 +1,12 @@
 <div class='blue_pages'>
   <h2 class='experts_toggler'>Состав экспертного совета</h2>
   <ul class='experts_spoiler'>
-    <% object.items.each_with_index do |item, index| %>
-      <li class='<%= index.zero? ? 'chief' : 'member' %>'>
-        <%= render_partial_for_region(@regulation, 'regulation') if index.zero? && @regulation.present? %>
+    <% object.items.drop(1).each_with_index do |item, index| %>
+      <li class='member'>
         <% if item.image_url.present? %>
           <div class='image'>
             <%= link_to item.image_url, :class => :colorbox, :rel => :colorbox do %>
-              <%= image_tag resized_image_url(item.image_url, 130, 172), :size => '130x172', :alt => item.person if index.zero? %>
-              <%= image_tag resized_image_url(item.image_url, 80, 107), :size => '80x107', :alt => item.person unless index.zero? %>
+              <%= image_tag resized_image_url(item.image_url, 80, 107), :size => '80x107', :alt => item.person %>
             <% end %>
           </div>
         <% end %>
