@@ -8,7 +8,7 @@ task :import_calendars => :environment do
   target_dir = Rails.root.join('tmp', 'calendars')
   FileUtils.mkdir target_dir unless File.directory?(target_dir)
   councils = (YAML.load_file(Rails.root.join('config', 'calendars.yml'))['calendars'] || {})
-  bar = ProgressBar.new(councils.count)
+  bar = ProgressBar.new(councils.count * 2)
   begin
     councils.each do |council|
       council_slug = council.first
@@ -17,6 +17,7 @@ task :import_calendars => :environment do
         http = Curl.get(calendar_url)
         saved_file.write(http.body_str)
       end
+      bar.increment!
       calendar_url = council.second['url'].gsub(/\/ical\//, '/feeds/').gsub(/\.ics$/, '')
       File.open("#{target_dir}/#{council_slug}.xml", 'wb') do |saved_file|
         http = Curl.get(calendar_url)
