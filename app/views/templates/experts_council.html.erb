@@ -7,7 +7,7 @@
     <%= render_partial_for_region(@content_third, 'experts_council') if @content_third %>
   </div>
   <div class='right'>
-    <%= render :partial => 'regions/experts_council_chief', :locals => { :object => @content_second.content.items.first } %>
+    <%= render :partial => 'regions/experts_council_chief', :locals => { :object => @content_second.try(:[], 'content').try(:[], 'items').try(:[], 0) } %>
     <%= render :partial => 'regions/protocols' %>
   </div>
 </div>
