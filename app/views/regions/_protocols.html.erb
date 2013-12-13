@@ -24,5 +24,7 @@
       <li>Повесток и протоколов не найдено</li>
     <% end %>
   </ul>
-  <p class ='calendar_link'><a href='<%= Calendar.calendar_url(params["path"].split('/')[2]) %>'>Календарь</a></p>
+  <% if params["path"].present? %>
+    <p class ='calendar_link'><a href='<%= Calendar.calendar_url(params["path"].split('/')[2]) %>'>Календарь</a></p>
+  <% end %>
 </div>
