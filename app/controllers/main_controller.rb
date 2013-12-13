@@ -12,7 +12,6 @@ class MainController < ApplicationController
     @page_title = page.title
     @events = []
 
-
     if @main_navigation.content.ru.children['ekspertnye-sovety'].selected?
       flag = false
       @main_navigation.content.ru.children['ekspertnye-sovety'].children.each do |s|

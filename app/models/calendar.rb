@@ -142,4 +142,13 @@ class Calendar
     new_event.sort{ |a, b| b.dtstart <=> a.dtstart }
   end
 
+  def self.calendar_url(name)
+    begin
+      councils = (YAML.load_file(Rails.root.join('config', 'calendars.yml'))['calendars'] || {})
+      return "https://www.google.com/calendar/embed?src=#{councils[name]["url"].split('/')[5]}"
+    rescue => e
+      return nil
+    end
+  end
+
 end
