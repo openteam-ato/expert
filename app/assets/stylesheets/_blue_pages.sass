@@ -1,72 +1,70 @@
 .blue_pages
   +clearfix
 
-  .left
-    #experts_spoiler
-      cursor: pointer
-      font-size: 14px
-      color: #005fab
-      text-decoration: underline
+  .experts_toggler
+    cursor: pointer
+    color: #005fab
+    text-decoration: underline
 
-      &:hover
-        text-decoration: none
+    &:hover
+      text-decoration: none
 
-    li
-      +clearfix
-      position: relative
-      border-bottom: 2px solid #f7f7f7
-      margin-top: 10px
-      margin-bottom: 20px
-      padding-bottom: 20px
+  li
+    +clearfix
+    position: relative
+    border-bottom: 2px solid #f7f7f7
+    margin-top: 10px
+    margin-bottom: 20px
+    padding-bottom: 20px
+
+    &:after
+      content: ' '
+      display: block
+      width: 100%
+      position: absolute
+      bottom: 0
+      left: 0
+      background-color: #f7f7f7
+      border-bottom: 1px dotted #7f7f7f
+      padding-bottom: 2px
+
+    &:last-child
+      border: none
+      margin-bottom: 10px
+      padding-bottom: 0
 
       &:after
-        content: ' '
-        display: block
-        width: 100%
-        position: absolute
-        bottom: 0
-        left: 0
-        background-color: #f7f7f7
-        border-bottom: 1px dotted #7f7f7f
-        padding-bottom: 2px
-
-      &:last-child
+        content: ''
         border: none
-        margin-bottom: 10px
-        padding-bottom: 0
+        background-color: transparent
+        padding: 0
 
-        &:after
-          content: ''
-          border: none
-          background-color: transparent
-          padding: 0
+    .image
+      float: left
+      border: 1px solid #cfcfcf
+      margin: 0 10px 0 0
 
-      .image
-        float: left
-        border: 1px solid #cfcfcf
-        margin: 0 10px 0 0
+    .person
+      font-size: 18px
+      margin-bottom: 5px
 
-      .person
-        font-size: 18px
-        margin-bottom: 5px
+    .title
+      color: #7f7f7f
 
-      .title
-        color: #7f7f7f
+    .address,
+    .phones,
+    .emals
+      margin-top: 5px
 
-      .address,
-      .phones,
-      .emals
-        margin-top: 5px
+  .chief
+    .image
+      width: 130px
+      height: 172px
 
-    .chief
-      .image
-        width: 130px
-        height: 172px
-
-    .member
-      .image
-        width: 80px
-        height: 107px
+  .member
+    .image
+      width: 80px
+      height: 107px
 
   .show_chief
     +clearfix
