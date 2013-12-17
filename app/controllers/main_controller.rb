@@ -28,7 +28,7 @@ class MainController < ApplicationController
         @events = Calendar.new_events(@events)
       end
     else
-      if params["path"].blank?
+      if params['path'].blank? || params['path'].match(/ru$/)
         @events = Calendar.new_events(Calendar.events)
       end
     end
