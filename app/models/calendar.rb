@@ -88,7 +88,7 @@ class Calendar
       events << e
     end
 
-    events.flatten.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
+    events.flatten.compact.sort{ |a, b| a.dtstart <=> b.dtstart }
   end
 
   #return events from all calendars in ics
@@ -100,7 +100,7 @@ class Calendar
         events << e
       end
     end
-    events.flatten.compact.sort{ |a, b| b.dtstart <=> a.dtstart }
+    events.flatten.compact.sort{ |a, b| a.dtstart <=> b.dtstart }
   end
 
   def self.calendars_with_event_links
@@ -139,7 +139,7 @@ class Calendar
       end
     end
 
-    new_event.sort{ |a, b| b.dtstart <=> a.dtstart }
+    new_event.sort{ |a, b| a.dtstart <=> b.dtstart }
   end
 
   def self.calendar_url(name)
