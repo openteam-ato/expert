@@ -7,11 +7,11 @@
           <div class='date'>
             <%= I18n.l(Time.zone.parse(e.dtstart.to_s), :format => '%d %B %Y %H:%M') %>
           </div>
-          <div class='location'>
-            <%= e.location %>
-          </div>
           <div class='title'>
             <%= link_to e.summary, e.resources.first, :target => '_blank' %>
+          </div>
+          <div class='location'>
+            <%= e.location %>
           </div>
         </li>
       <% end %>
