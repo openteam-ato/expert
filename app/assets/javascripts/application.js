@@ -14,6 +14,7 @@
  * = require jquery_nested_form
  * = require archive_collapser
  * = require colorbox
+ * = require jcarousel
  * = require main
  * = require experts_spoiler
  */
