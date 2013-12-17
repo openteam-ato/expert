@@ -134,7 +134,7 @@ class Calendar
   def self.new_events(events)
     new_event = []
     events.each do |e|
-      if e.dtstart > Time.now
+      if Time.zone.parse(e.dtstart.to_s) > Time.zone.now
         new_event.push e
       end
     end

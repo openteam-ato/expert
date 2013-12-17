@@ -1,7 +1,7 @@
 <% if object.present? %>
   <div class='show_chief'>
     <%= content_tag :div, :class => 'title' do %>
-      <%= object.title.to_s.as_html %>
+      <%= object.title.to_s.as_html.gsub(/(.*)\./, '<strong>\0</strong>').html_safe %>
     <% end %>
 
     <% if object.image_url %>
@@ -11,7 +11,6 @@
     <% else %>
       <%= image_tag image_path('dummy.png'), :size => '217x290' %>
     <% end %>
-
     <div class='fio'>
       <% if object.link %>
         <%= link_to object.person.sub(/\s/, "<br />").html_safe, object.link %>
@@ -20,12 +19,8 @@
       <% else %>
         <%= "#{object.surname} #{object.name} #{object.patronymic}" %>
       <% end %>
-      <span class='phones'>
-        <%= object.phones %>
-      </span>
-      <span class='emails'>
-        <%= object.emails.map{|email| mail_to(email)}.join(', ').html_safe if object.emails %>
-      </span>
+      <%= content_tag :span, object.phones, :class=> :phones if object.phones %>
+      <%= content_tag :span, object.emails.map{|email| mail_to(email)}.join(', ').html_safe, :class => :emails if object.emails %>
     </div>
   </div>
 <% end %>
