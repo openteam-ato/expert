@@ -1,8 +1,8 @@
 <% if object.present? %>
   <div class='show_chief'>
     <%= content_tag :div, :class => 'title' do %>
-      <strong><%= object.title.to_s.as_html.split('.')[0].html_safe %></strong><br />
-      <%= object.title.to_s.as_html.split('.').drop(1).join('.').html_safe %>
+      <strong><%= object.title.to_s.split('.')[0].as_html %></strong><br />
+      <%= object.title.to_s.split('.').drop(1).join('.').as_html %>
     <% end %>
 
     <% if object.image_url %>
