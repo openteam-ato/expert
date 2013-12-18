@@ -1,7 +1,8 @@
 <% if object.present? %>
   <div class='show_chief'>
     <%= content_tag :div, :class => 'title' do %>
-      <%= object.title.to_s.as_html.gsub(/(.*)\./, '<strong>\1</strong><br />').html_safe %>
+      <strong><%= object.title.to_s.as_html.split('.')[0].html_safe %></strong><br />
+      <%= object.title.to_s.as_html.split('.').drop(1).join('.').html_safe %>
     <% end %>
 
     <% if object.image_url %>
