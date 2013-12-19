@@ -1,6 +1,7 @@
 <div class='show_chief'>
   <%= content_tag :div, :class => 'title' do %>
-    <%= object.title.to_s.as_html %>
+    <strong><%= object.title.to_s.split('.')[0].as_html %></strong><br />
+    <%= object.title.to_s.split('.').drop(1).join('.').as_html %>
   <% end %>
 
   <% if object.image_url %>
