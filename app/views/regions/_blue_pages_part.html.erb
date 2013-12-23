@@ -1,5 +1,5 @@
 <div class='blue_pages'>
-  <h2 class='experts_toggler'>Состав экспертного совета</h2>
+  <h2 class='experts_toggler'>Состав Экспертного совета</h2>
   <ul class='experts_spoiler'>
     <% object.items.each_with_index do |item, index| %>
       <li class='<%= index.zero? ? 'chief' : 'member' %>'>
@@ -20,9 +20,6 @@
             <% end %>
           </div>
           <div class='title'><%= item.title.to_s.as_html %></div>
-          <% if item.address.present? %>
-            <div class='address'><strong>Адрес:</strong> <%= item.address %></div>
-          <% end %>
           <% if item.phones.present? %>
             <div class='phones'>
               <%= item.phones.split(';').map { |phone| "#{content_tag :strong, phone.split(':').first + ':'} #{phone.split(':').second}" }.join(', ').html_safe %>
