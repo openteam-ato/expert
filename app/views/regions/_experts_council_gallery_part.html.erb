@@ -1,6 +1,6 @@
 <% if object.gallery_pictures.any? %>
   <div class='experts_council_gallery_part'>
-    <h2>Протоколы заседаний экспертного совета</h2>
+    <h2><%= object.title %></h2>
     <ul>
       <% object.gallery_pictures.each do |item| %>
         <li>

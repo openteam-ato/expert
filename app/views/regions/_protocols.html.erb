@@ -19,7 +19,7 @@
       <li>Нет актуальной информации</li>
     <% end %>
   </ul>
-  <% if params["path"].present? && params["path"].split('/')[2].present? %>
-    <p class ='calendar_link'><%= link_to 'Календарь заседаний', Calendar.calendar_url(params["path"].split('/')[2]), :target => "_blank" %></p>
+  <% if params['path'].present? && params['path'].split('/')[2].present? %>
+    <p class ='calendar_link'><%= link_to 'Календарь заседаний', Calendar.calendar_url(params['path'].split('/')[2]), :target => "_blank" %></p>
   <% end %>
 </div>
