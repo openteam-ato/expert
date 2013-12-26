@@ -1,7 +1,7 @@
 <h1><%= @page_title %></h1>
 
-<div class="clearfix">
-  <div class='left index'>
+<div class='clearfix'>
+  <div class='left'>
     <%= render_partial_for_region(@regulation, 'regulation') if @regulation.present? %>
     <%= render_partial_for_region(@content_first) if @content_first %>
     <%= render_partial_for_region(@content_second) if @content_second %>

@@ -1,8 +1,4 @@
-<div class='content'>
-  <div class='inner'>
-    <h1><%= @page_title %></h1>
-    <div class='sitemap'>
-      <%= render "regions/#{@content_first.type.underscore}", :object => @content_first.content.values.first['children'] if @content_first %>
-    </div>
-  </div>
+<h1><%= @page_title %></h1>
+<div class='sitemap'>
+  <%= render "regions/#{@content_first.type.underscore}", :object => @content_first.content.values.first['children'] if @content_first %>
 </div>
