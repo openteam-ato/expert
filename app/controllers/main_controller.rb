@@ -56,7 +56,6 @@ class MainController < ApplicationController
 
   def remote_url
     request_path, parts_params = request.fullpath.split('?')
-    parts_params = URI.encode(parts_params || '')
 
     "#{cms_address}#{request_path.split('/').compact.join('/')}.json?#{parts_params}"
   end
